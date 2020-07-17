@@ -57,7 +57,7 @@ public class OnboardingFlow extends Fragment {
             mParam2 = getArguments().getString(ARG_PARAM2);
         }
 
-        flowForward = (Button) find
+        flowForward = (Button) getView()
     }
 
     @Override

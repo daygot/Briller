@@ -1,33 +1,65 @@
 <?xml version="1.0" encoding="utf-8"?>
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".OnboardingFlow">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView1
+    <RelativeLayout
+        android:id="@+id/ob_1"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="Quote"
-        android:visibility="visible"/>
+        android:visibility="invisible">
 
-    <TextView2
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="Quote"
-        android:visibility="invisible"/>
+        <ImageView
+            android:id="@+id/ob_1_logo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginStart="29dp"
+            android:layout_marginLeft="29dp"
+            android:layout_marginTop="145dp"
+            android:src="@drawable/ic_launcher_foreground" />
 
-    <TextView3
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="Quote"
-        android:visibility="invisible"/>
+        <ImageView
+            android:id="@+id/ob_1_app_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:layout_marginTop="149dp"
+            android:layout_marginEnd="105dp"
+            android:layout_marginRight="105dp"
+            android:src="@drawable/ic_launcher_foreground" />
 
-    <TextView4
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="Quote"
-        android:visibility="invisible"/>
+        <TextView
+            android:id="@+id/ob_1_quote"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginStart="141dp"
+            android:layout_marginLeft="141dp"
+            android:layout_marginTop="309dp"
+            android:text="TextView" />
+
+        <ImageButton
+            android:id="@+id/ob_1_flow_forward"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginEnd="146dp"
+            android:layout_marginRight="146dp"
+            android:layout_marginBottom="184dp"
+            android:src="@drawable/ic_launcher_foreground" />
+    </RelativeLayout>
+
 
 </FrameLayout>
