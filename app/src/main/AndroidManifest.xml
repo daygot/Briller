@@ -16,7 +16,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".SignInScreen" />
+        <activity android:name=".OnboardingScreen" />
         <activity android:name=".LandingScreen" />
     </application>
 

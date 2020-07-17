@@ -1,7 +1,6 @@
 package com.goats.briller;
 
 import android.content.Intent;
-import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -28,7 +27,7 @@ public class LandingScreen extends AppCompatActivity {
     }
 
     public void OpenSignInScreen() {
-        Intent signInIntent = new Intent(this, SignInScreen.class);
+        Intent signInIntent = new Intent(this, OnboardingScreen.class);
         startActivity(signInIntent);
     }
 
