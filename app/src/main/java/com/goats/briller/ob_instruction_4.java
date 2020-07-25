@@ -10,23 +10,24 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.Toast;
 
-public class ob_f1 extends Fragment {
+public class ob_instruction_4 extends Fragment {
 
-    private Button btnTo_F2;
+    private final int FLOW_NUMBER = 4;
+    private Button forward_button;
 
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.ob_f1, container, false);
+        View view = inflater.inflate(R.layout.ob_instruction_4, container, false);
 
-        btnTo_F2 = (Button) view.findViewById(R.id.f1_button);
+        forward_button = view.findViewById(R.id.complete_registration);
 
-        btnTo_F2.setOnClickListener(new View.OnClickListener() {
+        forward_button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Toast.makeText(getActivity(), "Going to Fragment 2!", Toast.LENGTH_SHORT).show();
 
-                ((OnboardingActivity)getActivity()).setViewPager(1);
+                ((OnboardingActivity)getActivity()).setViewPager(FLOW_NUMBER);
             }
         });
 

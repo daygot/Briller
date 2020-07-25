@@ -1,46 +1,47 @@
 package com.goats.briller;
 
-import android.content.Intent;
-import android.support.v4.app.Fragment;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
-import android.view.View;
-import android.widget.ImageButton;
 
 public class OnboardingActivity extends AppCompatActivity {
 
     private static final String TAG = "OnboardingActivity";
 
-    private OnboardingFragmentsAdapter OBF_FragmentsAdapter;
-
     private ViewPager OBF_ViewPager;
+
+    private int currentFragmentNumber;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.onboarding_activity_layout);
-        Log.d(TAG, "Onboarding OnCreate Started");
+        Log.d(TAG, "Onboarding instruction flow started");
 
-        OBF_FragmentsAdapter = new OnboardingFragmentsAdapter(getSupportFragmentManager());
+        OBF_ViewPager = findViewById(R.id.onboarding_instructions_container);
 
-        OBF_ViewPager = (ViewPager) findViewById(R.id.container);
-        // SetUp Pager
+        // Set Up Pager
         setUpViewPager(OBF_ViewPager);
-
     }
 
     private void setUpViewPager(ViewPager viewPager){
-        OnboardingFragmentsAdapter adapter = new OnboardingFragmentsAdapter(getSupportFragmentManager());
-        adapter.addFragment(new ob_f1(), "ob_f1");
-        adapter.addFragment(new ob_f2(), "ob_f2");
-        adapter.addFragment(new ob_f3(), "ob_f3");
-        viewPager.setAdapter(adapter);
+        OnboardingFragmentsAdapter OBF_FragmentsAdapter = new OnboardingFragmentsAdapter(getSupportFragmentManager());
+        OBF_FragmentsAdapter.addFragment(new ob_instruction_1(), "ob_instruction_1");
+        OBF_FragmentsAdapter.addFragment(new ob_instruction_2(), "ob_instruction_2");
+        OBF_FragmentsAdapter.addFragment(new ob_instruction_3(), "ob_instruction_3");
+        OBF_FragmentsAdapter.addFragment(new ob_instruction_4(), "ob_instruction_4");
+        viewPager.setAdapter(OBF_FragmentsAdapter);
     }
 
     public void setViewPager(int fragmentNumber){
         OBF_ViewPager.setCurrentItem(fragmentNumber);
+        currentFragmentNumber = fragmentNumber;
     }
 
+    @Override
+    public void onBackPressed() {
+        if (currentFragmentNumber == 1) {super.onBackPressed();}
+        this.setViewPager(currentFragmentNumber - 1);
+    }
 }

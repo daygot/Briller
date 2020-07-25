@@ -22,4 +22,10 @@
         android:layout_marginTop="380dp"
         android:layout_marginStart="165dp" />
 
+    <Button
+        android:id="@+id/complete_registration"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="complete_registration" />
+
 </FrameLayout>
