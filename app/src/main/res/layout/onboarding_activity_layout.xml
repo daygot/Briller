@@ -1,12 +1,50 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@drawable/onboarding_background">
 
-    <android.support.v4.view.ViewPager
+    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/onboarding_instruction_title_bar"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:id="@+id/onboarding_instructions_container">
-    </android.support.v4.view.ViewPager>
+        android:layout_height="wrap_content"
+        android:layout_marginTop="70dp">
 
-</FrameLayout>
+        <ImageButton
+            android:id="@+id/onboarding_instruction_back_button"
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:layout_alignTop="@id/onboarding_instruction_title"
+            android:layout_toLeftOf="@id/onboarding_instruction_title"
+
+            android:background="@drawable/onboarding_instruction_back_button"
+            android:scaleType="fitXY"/>
+
+        <TextView
+            android:id="@+id/onboarding_instruction_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+
+            android:text="One step at a time"
+            android:textSize="18sp"
+            />
+
+    </RelativeLayout>
+
+    <com.goats.briller.WrapContentViewPager
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/onboarding_instructions_container"
+        />
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="60dp"
+        android:layout_marginRight="60dp"
+        android:layout_below="@id/onboarding_instructions_container"
+        android:src="@drawable/onboarding_instruction_progress_1" />
+
+</LinearLayout>

@@ -1,39 +1,50 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="@drawable/onboarding_background">
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:background="@null">
 
-    <ImageButton
-        android:id="@+id/onboarding_instruction_back_button"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentTop="true"
-        android:layout_marginLeft="25dp"
-        android:layout_marginTop="130dp"
-
-        android:src="@drawable/onboarding_instruction_back_button"
-        android:background="@null"
-        android:layout_height="wrap_content"
-        android:layout_width="wrap_content"
-        android:scaleType="center"/>
-
-    <TextView
-        android:id="@+id/onboarding_instruction_title"
+    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/onboarding_instruction_body"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_toEndOf="@id/onboarding_instruction_back_button"
-        android:layout_alignTop="@id/onboarding_instruction_back_button"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        >
 
-        android:text="One step at a time"
-        android:textSize="36sp"
-        android:layout_toRightOf="@id/onboarding_instruction_back_button" />
+        <android.support.constraint.ConstraintLayout
+            android:id="@+id/image_container"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="20dp">
 
-    <TextView
-        android:id="@+id/f1_quote"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textSize="20sp"
-        android:text="Growth happens with small, consistent habits. Let Ollie follow you along the way!"
-        />
+            <ImageView
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                app:layout_constraintDimensionRatio="H,1:1"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+
+
+                android:background="@drawable/onboarding_instruction_dog_1"
+                android:scaleType="fitXY"
+                android:adjustViewBounds="true"/>
+
+        </android.support.constraint.ConstraintLayout>
+
+        <TextView
+            android:id="@+id/f1_quote"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/image_container"
+            android:layout_margin="20dp"
+            android:layout_marginTop="20dp"
+
+            android:text="Growth happens with small, consistent habits. Let Ollie follow you along the way!"
+            android:textSize="20sp" />
+
+    </RelativeLayout>
 
 </RelativeLayout>

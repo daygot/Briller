@@ -9,7 +9,7 @@ public class OnboardingActivity extends AppCompatActivity {
 
     private static final String TAG = "OnboardingActivity";
 
-    private ViewPager OBF_ViewPager;
+    private WrapContentViewPager onboarding_instruction_ViewPager;
 
     private int currentFragmentNumber;
 
@@ -19,10 +19,29 @@ public class OnboardingActivity extends AppCompatActivity {
         setContentView(R.layout.onboarding_activity_layout);
         Log.d(TAG, "Onboarding instruction flow started");
 
-        OBF_ViewPager = findViewById(R.id.onboarding_instructions_container);
+        onboarding_instruction_ViewPager = findViewById(R.id.onboarding_instructions_container);
+
+        onboarding_instruction_ViewPager.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
+            @Override
+            public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
+
+            }
+
+            @Override
+            public void onPageSelected(int position) {
+                onboarding_instruction_ViewPager.reMeasureCurrentPage(onboarding_instruction_ViewPager.getCurrentItem());
+            }
+
+            @Override
+            public void onPageScrollStateChanged(int state) {
+
+            }
+        });
 
         // Set Up Pager
-        setUpViewPager(OBF_ViewPager);
+        setUpViewPager(onboarding_instruction_ViewPager);
+
+        System.out.println("pager set up");
     }
 
     private void setUpViewPager(ViewPager viewPager){
@@ -31,11 +50,13 @@ public class OnboardingActivity extends AppCompatActivity {
         OBF_FragmentsAdapter.addFragment(new ob_instruction_2(), "ob_instruction_2");
         OBF_FragmentsAdapter.addFragment(new ob_instruction_3(), "ob_instruction_3");
         OBF_FragmentsAdapter.addFragment(new ob_instruction_4(), "ob_instruction_4");
+        System.out.println("fragments added");
         viewPager.setAdapter(OBF_FragmentsAdapter);
+        System.out.println("fragments adapter set");
     }
 
     public void setViewPager(int fragmentNumber){
-        OBF_ViewPager.setCurrentItem(fragmentNumber);
+        onboarding_instruction_ViewPager.setCurrentItem(fragmentNumber);
         currentFragmentNumber = fragmentNumber;
     }
 
