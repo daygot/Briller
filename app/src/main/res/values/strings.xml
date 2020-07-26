@@ -2,13 +2,29 @@
     <string name="app_name">Briller</string>
 
     <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="onboarding_instruction_title_0">One Step at a Time.</string>
     <string name="onboarding_instruction_title_1">Set Goals, Earn Stars.</string>
     <string name="onboarding_instruction_title_2">Unlock Tricks and Skins.</string>
     <string name="onboarding_instruction_title_3">Let\'s Get Started!</string>
-    <string name="title_activity_home">home</string>
-    <string name="title_home">Home</string>
-    <string name="title_dashboard">Dashboard</string>
-    <string name="title_notifications">Notifications</string>
+
+    <string name="main_activity_home">home</string>
+    <string name="main_fragment_home_icon_description">Home</string>
+    <string name="main_fragment_stats_icon_description">Stats</string>
+    <string name="main_fragment_pethouse_icon_description">Pethouse</string>
+
+    <string name="habit_add">+ Add Habit</string>
+
+    <string name="habit_choose">Select Habit Type</string>
+    <string name="habit_physique">Physique</string>
+    <string name="habit_mind">Mind</string>
+
+    <string name="habit_physique_gym">Gym</string>
+    <string name="habit_physique_run">Run</string>
+    <string name="habit_physique_pushup">Pushups</string>
+    <string name="habit_physique_squat">Squats</string>
+
+    <string name="habit_mind_meditate">Meditate</string>
+    <string name="habit_mind_read">Read</string>
+    <string name="habit_mind_journal">Journal</string>
+    <string name="habit_mind_learn">Learn</string>
 </resources>
