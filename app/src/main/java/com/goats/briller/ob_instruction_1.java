@@ -13,24 +13,12 @@ import android.widget.Toast;
 
 public class ob_instruction_1 extends Fragment {
 
-    private final int FLOW_NUMBER = 1;
     private ImageButton back_button;
 
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.ob_instruction_1, container, false);
-
-//        back_button = view.findViewById(R.id.onboarding_instruction_back_button);
-//
-//        back_button.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                Toast.makeText(getActivity(), "Going back to onboarding flow", Toast.LENGTH_SHORT).show();
-//
-//                ((OnboardingActivity)getActivity()).setViewPager(FLOW_NUMBER);
-//            }
-//        });
 
         return view;
     }

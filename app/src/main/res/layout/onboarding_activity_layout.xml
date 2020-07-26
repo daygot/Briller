@@ -27,7 +27,7 @@
             android:layout_height="wrap_content"
             android:layout_centerInParent="true"
 
-            android:text="One step at a time"
+            android:text="@string/onboarding_instruction_title_0"
             android:textSize="18sp"
             />
 
@@ -35,16 +35,17 @@
 
     <com.goats.briller.WrapContentViewPager
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/onboarding_instructions_container"
+        android:layout_height="550dp"
+        android:id="@+id/onboarding_instruction_container"
         />
 
     <ImageView
+        android:id="@+id/onboarding_instruction_progress"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginLeft="60dp"
         android:layout_marginRight="60dp"
-        android:layout_below="@id/onboarding_instructions_container"
-        android:src="@drawable/onboarding_instruction_progress_1" />
+        android:layout_below="@id/onboarding_instruction_container"
+        android:src="@drawable/onboarding_instruction_progress_0" />
 
 </LinearLayout>

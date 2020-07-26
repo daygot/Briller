@@ -12,7 +12,6 @@ import android.widget.Toast;
 
 public class ob_instruction_2 extends Fragment {
 
-    private final int FLOW_NUMBER = 2;
     private Button forward_button_dog;
     private Button forward_button_cat;
 
@@ -21,26 +20,26 @@ public class ob_instruction_2 extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.ob_instruction_2, container, false);
 
-        forward_button_dog = view.findViewById(R.id.f2_dog_button);
-        forward_button_cat = view.findViewById(R.id.f2_cat_button);
-
-        forward_button_dog.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Toast.makeText(getActivity(), "Going to Fragment 3!", Toast.LENGTH_SHORT).show();
-
-                ((OnboardingActivity)getActivity()).setViewPager(FLOW_NUMBER);
-            }
-        });
-
-        forward_button_cat.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Toast.makeText(getActivity(), "Going to Fragment 3!", Toast.LENGTH_SHORT).show();
-
-                ((OnboardingActivity)getActivity()).setViewPager(FLOW_NUMBER);
-            }
-        });
+//        forward_button_dog = view.findViewById(R.id.f2_dog_button);
+//        forward_button_cat = view.findViewById(R.id.f2_cat_button);
+//
+//        forward_button_dog.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                Toast.makeText(getActivity(), "Going to Fragment 3!", Toast.LENGTH_SHORT).show();
+//
+//                ((OnboardingActivity)getActivity()).setViewPager(FLOW_NUMBER);
+//            }
+//        });
+//
+//        forward_button_cat.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                Toast.makeText(getActivity(), "Going to Fragment 3!", Toast.LENGTH_SHORT).show();
+//
+//                ((OnboardingActivity)getActivity()).setViewPager(FLOW_NUMBER);
+//            }
+//        });
 
         return view;
     }
