@@ -1,4 +1,4 @@
-package com.goats.briller;
+package com.goats.briller.onboarding;
 
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
@@ -6,6 +6,8 @@ import android.os.Bundle;
 import android.util.Log;
 import android.widget.ImageView;
 import android.widget.TextView;
+
+import com.goats.briller.R;
 
 public class OnboardingInstruction extends AppCompatActivity {
 

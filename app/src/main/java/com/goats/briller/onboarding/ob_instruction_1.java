@@ -1,4 +1,4 @@
-package com.goats.briller;
+package com.goats.briller.onboarding;
 
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -10,6 +10,8 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.Toast;
+
+import com.goats.briller.R;
 
 public class ob_instruction_1 extends Fragment {
 

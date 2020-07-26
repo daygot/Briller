@@ -7,4 +7,8 @@
     <string name="onboarding_instruction_title_1">Set Goals, Earn Stars.</string>
     <string name="onboarding_instruction_title_2">Unlock Tricks and Skins.</string>
     <string name="onboarding_instruction_title_3">Let\'s Get Started!</string>
+    <string name="title_activity_home">home</string>
+    <string name="title_home">Home</string>
+    <string name="title_dashboard">Dashboard</string>
+    <string name="title_notifications">Notifications</string>
 </resources>
