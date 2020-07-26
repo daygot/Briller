@@ -9,17 +9,17 @@
         android:id="@+id/navigation_home"
         android:name="com.goats.briller.main.ui.home.HomeFragment"
         android:label="@string/title_home"
-        tools:layout="@layout/fragment_home" />
+        tools:layout="@layout/main_fragment_home" />
 
     <fragment
         android:id="@+id/navigation_dashboard"
-        android:name="com.goats.briller.main.ui.dashboard.DashboardFragment"
+        android:name="com.goats.briller.main.ui.stats.StatsFragment"
         android:label="@string/title_dashboard"
-        tools:layout="@layout/fragment_dashboard" />
+        tools:layout="@layout/main_fragment_stats" />
 
     <fragment
         android:id="@+id/navigation_notifications"
-        android:name="com.goats.briller.main.ui.notifications.NotificationsFragment"
+        android:name="com.goats.briller.main.ui.pethouse.PethouseFragment"
         android:label="@string/title_notifications"
-        tools:layout="@layout/fragment_notifications" />
+        tools:layout="@layout/main_fragment_pethouse" />
 </navigation>

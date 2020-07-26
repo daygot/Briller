@@ -1,4 +1,4 @@
-package com.goats.briller.main.ui.dashboard;
+package com.goats.briller.main.ui.pethouse;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -11,19 +11,19 @@ import android.support.v4.app.Fragment;
 import android.arch.lifecycle.Observer;
 import android.arch.lifecycle.ViewModelProviders;
 
-import com.goats.briller.main.R;
+import com.goats.briller.R;
 
-public class DashboardFragment extends Fragment {
+public class PethouseFragment extends Fragment {
 
-    private DashboardViewModel dashboardViewModel;
+    private PethouseViewModel pethouseViewModel;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
-        dashboardViewModel =
-                ViewModelProviders.of(this).get(DashboardViewModel.class);
-        View root = inflater.inflate(R.layout.fragment_dashboard, container, false);
-        final TextView textView = root.findViewById(R.id.text_dashboard);
-        dashboardViewModel.getText().observe(getViewLifecycleOwner(), new Observer<String>() {
+        pethouseViewModel =
+                ViewModelProviders.of(this).get(PethouseViewModel.class);
+        View root = inflater.inflate(R.layout.main_fragment_pethouse, container, false);
+        final TextView textView = root.findViewById(R.id.text_notifications);
+        pethouseViewModel.getText().observe(getViewLifecycleOwner(), new Observer<String>() {
             @Override
             public void onChanged(@Nullable String s) {
                 textView.setText(s);

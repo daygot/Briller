@@ -9,6 +9,8 @@ import androidx.navigation.Navigation;
 import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
 
+import com.goats.briller.R;
+
 public class home extends AppCompatActivity {
 
     @Override
@@ -21,9 +23,13 @@ public class home extends AppCompatActivity {
         AppBarConfiguration appBarConfiguration = new AppBarConfiguration.Builder(
                 R.id.navigation_home, R.id.navigation_dashboard, R.id.navigation_notifications)
                 .build();
+        System.out.println("appbarconfig");
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment);
+        System.out.println("appbarconfignavcontroller");
         NavigationUI.setupActionBarWithNavController(this, navController, appBarConfiguration);
+        System.out.println("appbarconfigsetup");
         NavigationUI.setupWithNavController(navView, navController);
+        System.out.println("DONW");
     }
 
 }
