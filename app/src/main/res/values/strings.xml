@@ -26,5 +26,10 @@
     <string name="habit_mind_meditate">Meditate</string>
     <string name="habit_mind_read">Read</string>
     <string name="habit_mind_journal">Journal</string>
-    <string name="habit_mind_learn">Learn</string>
+    <string name="habit_mind_study">Study</string>
+
+    <string name="stampcard_time">Time</string>
+    <string name="stampcard_frequency_daily">Daily</string>
+    <string name="stampcard_set">Set</string>
+
 </resources>

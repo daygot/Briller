@@ -7,9 +7,7 @@
     android:orientation="vertical"
     android:gravity="center"
     android:background="@drawable/app_background"
-    tools:context=".main.ui.home.habit.HabitPhysique"
-
-    android:clickable="true"
+    tools:context=".main.ui.home.habit.HabitMind"
     >
 
     <LinearLayout
@@ -28,11 +26,11 @@
             android:scaleType="fitXY"/>
 
         <TextView
-            android:id="@+id/habit_choose_physique_title"
+            android:id="@+id/onboarding_instruction_title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
 
-            android:text="@string/habit_physique"
+            android:text="@string/habit_mind"
             android:textSize="@dimen/textview_big_1_size"
             />
 
@@ -41,15 +39,16 @@
             android:layout_height="wrap_content"
             android:adjustViewBounds="true"
             android:scaleType="fitCenter"
-            android:src="@drawable/habit_physique_icon" />
+            android:src="@drawable/habit_mind_icon" />
 
     </LinearLayout>
 
-    <GridLayout
+    <TableLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:rowCount="2"
-        android:columnCount="2">
+        android:stretchColumns="0,1"
+        >
+    <TableRow>
 
         <LinearLayout
             android:layout_width="wrap_content"
@@ -61,7 +60,7 @@
                 android:layout_height="wrap_content"
                 app:layout_constraintDimensionRatio="H,1:1"
 
-                android:src="@drawable/habit_physique_gym"
+                android:src="@drawable/habit_mind_meditate"
                 android:background="@null"
                 android:scaleType="fitXY"
                 android:adjustViewBounds="true"/>
@@ -69,7 +68,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="center"
-                android:text="@string/habit_physique_gym"
+                android:text="@string/habit_mind_meditate"
                 android:fontFamily="@font/montserrat_bold"
                 android:textSize="@dimen/textview_middle_size"/>
         </LinearLayout>
@@ -83,7 +82,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
 
-                android:src="@drawable/habit_physique_run"
+                android:src="@drawable/habit_mind_read"
                 android:background="@null"
                 android:scaleType="fitXY"
                 android:adjustViewBounds="true"/>
@@ -91,7 +90,33 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="center"
-                android:text="@string/habit_physique_run"
+                android:text="@string/habit_mind_read"
+                android:fontFamily="@font/montserrat_bold"
+                android:textSize="@dimen/textview_middle_size"/>
+        </LinearLayout>
+
+    </TableRow>
+
+    <TableRow>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:background="@drawable/item_habit">
+            <ImageButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+
+                android:src="@drawable/habit_mind_journal"
+                android:background="@null"
+                android:scaleType="fitXY"
+                android:adjustViewBounds="true"/>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="@string/habit_mind_journal"
                 android:fontFamily="@font/montserrat_bold"
                 android:textSize="@dimen/textview_middle_size"/>
         </LinearLayout>
@@ -105,7 +130,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
 
-                android:src="@drawable/habit_physique_pushup"
+                android:src="@drawable/habit_physique_study"
                 android:background="@null"
                 android:scaleType="fitXY"
                 android:adjustViewBounds="true"/>
@@ -113,33 +138,11 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="center"
-                android:text="@string/habit_physique_pushup"
+                android:text="@string/habit_mind_study"
                 android:fontFamily="@font/montserrat_bold"
                 android:textSize="@dimen/textview_middle_size"/>
         </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:background="@drawable/item_habit">
-            <ImageButton
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-
-                android:src="@drawable/habit_physique_squat"
-                android:background="@null"
-                android:scaleType="fitXY"
-                android:adjustViewBounds="true"/>
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:gravity="center"
-                android:text="@string/habit_physique_squat"
-                android:fontFamily="@font/montserrat_bold"
-                android:textSize="@dimen/textview_middle_size"/>
-        </LinearLayout>
-
-    </GridLayout>
+    </TableRow>
+    </TableLayout>
 
 </LinearLayout>

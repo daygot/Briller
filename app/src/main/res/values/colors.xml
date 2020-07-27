@@ -3,6 +3,7 @@
     <color name="colorPrimary">#6200EE</color>
     <color name="colorPrimaryDark">#3700B3</color>
     <color name="colorAccent">#03DAC5</color>
+
     <color name="bottom_nav_icon_background">#E9D6B9</color>
     <color name="bottom_nav_icon_background_selected">#D6B88A</color>
 
@@ -10,4 +11,10 @@
 
     <color name="item_habit_starting_blue">#F4FEFF</color>
     <color name="item_habit_ending_blue">#AFFAFF</color>
+
+    <color name="stampcard_button">#E4FDFF</color>
+    <color name="stampcard_button_outline">#80D1FF</color>
+
+    <color name="generic_button">#FEFFBA</color>
+    <color name="generic_button_outline">#A88B25</color>
 </resources>
