@@ -6,6 +6,7 @@ import android.os.Bundle;
 
 import com.goats.briller.main.home;
 import com.goats.briller.onboarding.OnboardingInstruction;
+import com.goats.briller.onboarding.ob_welcomeScreen;
 
 public class SplashScreen extends AppCompatActivity {
 
@@ -16,9 +17,18 @@ public class SplashScreen extends AppCompatActivity {
 
 //        Intent intent = new Intent(this, OnboardingInstruction.class);
 
-        Intent intent = new Intent(this, home.class);
+        System.out.println("checkpoint 1");
+
+        Intent intent = new Intent(this, ob_welcomeScreen.class);
+
+        System.out.println("checkpoint 2");
 
         startActivity(intent);
+
+        System.out.println("checkpoint 3");
+
         finish();
+
+        System.out.println("checkpoint 4");
     }
 }

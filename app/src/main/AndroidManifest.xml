@@ -19,6 +19,10 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".onboarding.ob_welcomeScreen" />
+        <activity android:name=".onboarding.ob_SelectPartnerScreen" />
+        <activity android:name=".onboarding.ob_selected_cat" />
+        <activity android:name=".onboarding.ob_selected_dog" />
         <activity android:name=".onboarding.OnboardingInstruction" />
         <activity android:name=".main.ui.home.habit.HabitType" />
         <activity android:name=".main.ui.home.habit.HabitPhysique" />
