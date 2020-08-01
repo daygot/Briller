@@ -23,7 +23,7 @@
             android:text=" Nala" />
 
         <Button
-            android:id="@+id/button3"
+            android:id="@+id/enter_button_cat"
             style="?android:attr/buttonStyleSmall"
             android:layout_width="145dp"
             android:layout_height="wrap_content"
