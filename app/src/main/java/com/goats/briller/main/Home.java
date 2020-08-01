@@ -18,7 +18,7 @@ import com.goats.briller.main.ui.home.HomeFragment;
 import com.goats.briller.main.ui.pethouse.PethouseFragment;
 import com.goats.briller.main.ui.stats.StatsFragment;
 
-public class home extends AppCompatActivity {
+public class Home extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

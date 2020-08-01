@@ -60,10 +60,10 @@ public class OnboardingInstruction extends AppCompatActivity {
 
     private void setUpViewPager(ViewPager viewPager){
         OnboardingFragmentsAdapter OBF_FragmentsAdapter = new OnboardingFragmentsAdapter(getSupportFragmentManager());
-        OBF_FragmentsAdapter.addFragment(new ob_instruction_1(), "ob_instruction_1");
-        OBF_FragmentsAdapter.addFragment(new ob_instruction_2(), "ob_instruction_2");
-        OBF_FragmentsAdapter.addFragment(new ob_instruction_3(), "ob_instruction_3");
-        OBF_FragmentsAdapter.addFragment(new ob_instruction_4(), "ob_instruction_4");
+        OBF_FragmentsAdapter.addFragment(new OnboardingInstruction1(), "ob_instruction_1");
+        OBF_FragmentsAdapter.addFragment(new OnboardingInstruction2(), "ob_instruction_2");
+        OBF_FragmentsAdapter.addFragment(new OnboardingInstruction3(), "ob_instruction_3");
+        OBF_FragmentsAdapter.addFragment(new OnboardingInstruction4(), "ob_instruction_4");
         viewPager.setAdapter(OBF_FragmentsAdapter);
     }
 

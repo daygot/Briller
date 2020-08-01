@@ -16,14 +16,14 @@
             android:text="What's my name?:" />
 
         <EditText
-            android:id="@+id/text_input_dog"
+            android:id="@+id/partner_name"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:inputType="text"
             android:text=" Nala" />
 
         <Button
-            android:id="@+id/enter_button_cat"
+            android:id="@+id/partner_name_submit"
             style="?android:attr/buttonStyleSmall"
             android:layout_width="145dp"
             android:layout_height="wrap_content"

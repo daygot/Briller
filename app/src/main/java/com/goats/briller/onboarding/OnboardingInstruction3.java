@@ -12,16 +12,16 @@ import android.widget.Toast;
 
 import com.goats.briller.R;
 
-public class ob_instruction_4 extends Fragment {
+public class OnboardingInstruction3 extends Fragment {
 
     private Button forward_button;
 
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.ob_instruction_4, container, false);
+        View view = inflater.inflate(R.layout.ob_instruction_3, container, false);
 
-//        forward_button = view.findViewById(R.id.complete_registration);
+//        forward_button = (Button) view.findViewById(R.id.complete_registration);
 //
 //        forward_button.setOnClickListener(new View.OnClickListener() {
 //            @Override

@@ -6,7 +6,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:background="@drawable/app_background"
     android:orientation="vertical"
-    tools:context=".onboarding.ob_welcomeScreen">
+    tools:context=".onboarding.OnboardingWelcomeScreen">
 
     <LinearLayout
         android:layout_marginLeft="20dp"

@@ -12,7 +12,7 @@ import android.widget.Toast;
 
 import com.goats.briller.R;
 
-public class ob_instruction_2 extends Fragment {
+public class OnboardingInstruction2 extends Fragment {
 
     private Button forward_button_dog;
     private Button forward_button_cat;

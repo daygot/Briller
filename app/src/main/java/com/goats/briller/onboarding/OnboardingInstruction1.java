@@ -13,7 +13,7 @@ import android.widget.Toast;
 
 import com.goats.briller.R;
 
-public class ob_instruction_1 extends Fragment {
+public class OnboardingInstruction1 extends Fragment {
 
     private ImageButton back_button;
 
