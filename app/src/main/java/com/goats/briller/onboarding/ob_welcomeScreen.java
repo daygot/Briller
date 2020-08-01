@@ -30,7 +30,6 @@ public class ob_welcomeScreen extends AppCompatActivity {
                 Intent intent = new Intent(getApplicationContext(), ob_SelectPartnerScreen.class);
 
                 startActivity(intent);
-                finish();
             }
         });
 

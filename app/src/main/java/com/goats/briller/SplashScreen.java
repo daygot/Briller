@@ -15,20 +15,14 @@ public class SplashScreen extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splash_screen);
 
-//        Intent intent = new Intent(this, OnboardingInstruction.class);
 
-        System.out.println("checkpoint 1");
 
         Intent intent = new Intent(this, ob_welcomeScreen.class);
 
-        System.out.println("checkpoint 2");
 
         startActivity(intent);
 
-        System.out.println("checkpoint 3");
-
         finish();
 
-        System.out.println("checkpoint 4");
     }
 }

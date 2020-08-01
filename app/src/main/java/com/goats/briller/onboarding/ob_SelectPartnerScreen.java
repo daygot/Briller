@@ -27,7 +27,6 @@ public class ob_SelectPartnerScreen extends AppCompatActivity {
                 Intent intent = new Intent(getApplicationContext(), ob_selected_dog.class);
 
                 startActivity(intent);
-                finish();
             }
         });
 
@@ -37,7 +36,6 @@ public class ob_SelectPartnerScreen extends AppCompatActivity {
                 Intent intent = new Intent(getApplicationContext(), ob_selected_cat.class);
 
                 startActivity(intent);
-                finish();
             }
         });
     }
