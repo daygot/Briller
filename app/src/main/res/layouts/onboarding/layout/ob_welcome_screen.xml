@@ -1,33 +1,71 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@drawable/app_background"
+    android:orientation="vertical"
+    tools:context=".onboarding.ob_welcomeScreen">
+
+    <LinearLayout
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="30dp"
+
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        >
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:adjustViewBounds="true"
+            android:maxHeight="50dp"
+            android:maxWidth="50dp"
+            android:scaleType="fitXY"
+            android:src="@drawable/briller_logo" />
+
+        <ImageView
+            android:layout_marginLeft="10dp"
+            android:layout_gravity="center_vertical"
+
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:adjustViewBounds="true"
+            android:maxHeight="10dp"
+            android:scaleType="fitXY"
+            android:src="@drawable/briller_name_logo" />
+
+    </LinearLayout>
 
     <TextView
-        android:id="@+id/briller_logo"
-        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="120dp"
-        android:layout_marginTop="213dp"
-        android:textSize="32sp"
-        android:text="Briller Logo"
-        android:layout_marginStart="120dp" />
-
-    <TextView
-        android:id="@+id/f1_quote"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="160dp"
-        android:layout_marginTop="350dp"
-        android:textSize="32sp"
-        android:text="Quote"
-        android:layout_marginStart="160dp" />
+        android:layout_margin="60dp"
+        android:gravity="center"
+        android:text="@string/onboarding_welcome_screen_quote_1"
+        android:textSize="@dimen/textview_big_0_size"> </TextView>
 
-    <ImageButton
-        android:id="@+id/welcome_screen_button"
-        android:layout_width="wrap_content"
+    <android.support.constraint.ConstraintLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@null"
-        android:src="@drawable/welcome_screen_button" />
+        android:layout_margin="60dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dp">
 
-</FrameLayout>
+        <ImageButton
+            android:id="@+id/welcome_screen_button"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:layout_constraintDimensionRatio="H,1:1"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+
+            android:background="@drawable/welcome_screen_button"
+            android:scaleType="fitXY"
+            android:adjustViewBounds="true"/>
+
+    </android.support.constraint.ConstraintLayout>
+
+</LinearLayout>

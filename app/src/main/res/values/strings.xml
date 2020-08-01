@@ -1,7 +1,13 @@
 <resources>
     <string name="app_name">Briller</string>
 
-    <!-- TODO: Remove or change this placeholder text -->
+    <string name="onboarding_welcome_screen_quote_1">\"Habits become values. Values become destiny.\"\n - Gandhi</string>
+    <string name="onboarding_select_partner_screen_title">Choose your accountability partner...</string>
+    <string name="onboarding_selected_partner_screen_title">What\'s my name?</string>
+
+    <string name="dog_name">Ollie</string>
+    <string name="cat_name">Nala</string>
+
     <string name="onboarding_instruction_title_0">One Step at a Time.</string>
     <string name="onboarding_instruction_title_1">Set Goals, Earn Stars.</string>
     <string name="onboarding_instruction_title_2">Unlock Tricks and Skins.</string>

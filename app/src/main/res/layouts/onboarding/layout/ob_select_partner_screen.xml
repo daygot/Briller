@@ -1,54 +1,159 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:gravity="center"
+    android:background="@drawable/app_background"
+    android:orientation="vertical"
+    tools:context=".onboarding.ob_SelectPartnerScreen">
 
-    <TextView
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        >
+
+        <ImageButton
+            android:id="@+id/back_button"
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+
+            android:background="@drawable/app_back_button"
+            android:scaleType="fitXY"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+            android:text="@string/onboarding_select_partner_screen_title"
+            android:textSize="@dimen/textview_middle_size"
+            />
+
+    </LinearLayout>
+
+    <TableLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="100dp"
-        android:layout_marginTop="100dp"
-        android:textSize="20sp"
-        android:text="Choose Your Partner"
-        android:layout_marginStart="100dp" />
+        android:layout_margin="30dp"
+        >
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="60dp"
-        android:layout_marginTop="420dp"
-        android:textSize="32sp"
-        android:text="Dog"
-        android:layout_marginStart="60dp" />
+        <TableRow
+            android:gravity="center"
+            android:layout_marginBottom="20dp">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="240dp"
-        android:layout_marginTop="240dp"
-        android:textSize="32sp"
-        android:text="Cat"
-        android:layout_marginStart="240dp" />
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:background="@drawable/item_habit"
+                android:layout_marginRight="20dp"
 
-    <Button
-        android:id="@+id/f2_dog_button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="50dp"
-        android:layout_marginTop="360dp"
-        android:textSize="32sp"
-        android:text="+"
-        android:layout_marginStart="45dp" />
+                android:visibility="invisible">
+                <ImageButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:maxHeight="120dp"
+                    android:maxWidth="120dp"
 
-    <Button
-        android:id="@+id/f2_cat_button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="220dp"
-        android:layout_marginTop="180dp"
-        android:textSize="32sp"
-        android:text="+"
-        android:layout_marginStart="220dp" />
+                    android:src="@drawable/habit_mind_meditate"
+                    android:background="@null"
+                    android:scaleType="fitXY"
+                    android:adjustViewBounds="true"
+                    />
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text="@string/habit_mind_meditate"
+                    android:fontFamily="@font/montserrat_bold"
+                    android:textSize="@dimen/textview_middle_size"/>
+            </LinearLayout>
 
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:background="@drawable/item_habit">
+                <ImageButton
+                    android:id="@+id/onboarding_dog_button"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:maxHeight="120dp"
+                    android:maxWidth="120dp"
 
-</FrameLayout>
+                    android:src="@drawable/onboarding_dog"
+                    android:background="@null"
+                    android:scaleType="fitXY"
+                    android:adjustViewBounds="true"/>
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text="@string/dog_name"
+                    android:fontFamily="@font/montserrat_bold"
+                    android:textSize="@dimen/textview_middle_size"/>
+            </LinearLayout>
+
+        </TableRow>
+
+        <TableRow
+            android:gravity="center">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:background="@drawable/item_habit"
+                android:layout_marginRight="20dp">
+                <ImageButton
+                    android:id="@+id/onboarding_cat_button"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:maxWidth="120dp"
+
+                    android:src="@drawable/onboarding_cat"
+                    android:background="@null"
+                    android:scaleType="fitXY"
+                    android:adjustViewBounds="true"/>
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text="@string/cat_name"
+                    android:fontFamily="@font/montserrat_bold"
+                    android:textSize="@dimen/textview_middle_size"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:background="@drawable/item_habit"
+
+                android:visibility="invisible">
+                <ImageButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:maxWidth="120dp"
+                    android:maxHeight="120dp"
+
+                    android:src="@drawable/habit_mind_study"
+                    android:background="@null"
+                    android:scaleType="fitXY"
+                    android:adjustViewBounds="true"/>
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text="@string/habit_mind_study"
+                    android:fontFamily="@font/montserrat_bold"
+                    android:textSize="@dimen/textview_middle_size"/>
+            </LinearLayout>
+
+        </TableRow>
+
+    </TableLayout>
+
+</LinearLayout>

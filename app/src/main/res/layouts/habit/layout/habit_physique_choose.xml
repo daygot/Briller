@@ -20,7 +20,7 @@
         >
 
         <ImageButton
-            android:id="@+id/habit_choose_back_button"
+            android:id="@+id/back_button"
             android:layout_height="wrap_content"
             android:layout_width="wrap_content"
 
@@ -37,109 +37,131 @@
             />
 
         <ImageView
-            android:layout_width="fill_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:maxHeight="30dp"
+            android:maxWidth="30dp"
             android:adjustViewBounds="true"
             android:scaleType="fitCenter"
             android:src="@drawable/habit_physique_icon" />
 
     </LinearLayout>
 
-    <GridLayout
+    <TableLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:rowCount="2"
-        android:columnCount="2">
+        android:layout_margin="30dp"
+        >
 
-        <LinearLayout
+        <TableRow
+            android:gravity="center"
+            android:layout_marginBottom="20dp">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:background="@drawable/item_habit"
+                android:layout_marginRight="20dp">
+                <ImageButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:maxHeight="120dp"
+                    android:maxWidth="120dp"
+
+                    android:src="@drawable/habit_physique_gym"
+                    android:background="@null"
+                    android:scaleType="fitXY"
+                    android:adjustViewBounds="true"
+                    />
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text="@string/habit_physique_gym"
+                    android:fontFamily="@font/montserrat_bold"
+                    android:textSize="@dimen/textview_middle_size"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:background="@drawable/item_habit">
+                <ImageButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:maxHeight="120dp"
+                    android:maxWidth="120dp"
+
+                    android:src="@drawable/habit_physique_run"
+                    android:background="@null"
+                    android:scaleType="fitXY"
+                    android:adjustViewBounds="true"/>
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text="@string/habit_physique_run"
+                    android:fontFamily="@font/montserrat_bold"
+                    android:textSize="@dimen/textview_middle_size"/>
+            </LinearLayout>
+
+        </TableRow>
+
+        <TableRow
+            android:gravity="center">
+
+            <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            android:background="@drawable/item_habit">
-            <ImageButton
+            android:background="@drawable/item_habit"
+            android:layout_marginRight="20dp">
+                <ImageButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:maxWidth="120dp"
+
+                    android:src="@drawable/habit_physique_pushup"
+                    android:background="@null"
+                    android:scaleType="fitXY"
+                    android:adjustViewBounds="true"/>
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text="@string/habit_physique_pushup"
+                    android:fontFamily="@font/montserrat_bold"
+                    android:textSize="@dimen/textview_middle_size"/>
+            </LinearLayout>
+
+            <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                app:layout_constraintDimensionRatio="H,1:1"
+                android:orientation="vertical"
+                android:background="@drawable/item_habit">
+                <ImageButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:maxWidth="120dp"
+                    android:maxHeight="120dp"
 
-                android:src="@drawable/habit_physique_gym"
-                android:background="@null"
-                android:scaleType="fitXY"
-                android:adjustViewBounds="true"/>
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:gravity="center"
-                android:text="@string/habit_physique_gym"
-                android:fontFamily="@font/montserrat_bold"
-                android:textSize="@dimen/textview_middle_size"/>
-        </LinearLayout>
+                    android:src="@drawable/habit_physique_squat"
+                    android:background="@null"
+                    android:scaleType="fitXY"
+                    android:adjustViewBounds="true"/>
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text="@string/habit_physique_squat"
+                    android:fontFamily="@font/montserrat_bold"
+                    android:textSize="@dimen/textview_middle_size"/>
+            </LinearLayout>
 
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:background="@drawable/item_habit">
-            <ImageButton
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+        </TableRow>
 
-                android:src="@drawable/habit_physique_run"
-                android:background="@null"
-                android:scaleType="fitXY"
-                android:adjustViewBounds="true"/>
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:gravity="center"
-                android:text="@string/habit_physique_run"
-                android:fontFamily="@font/montserrat_bold"
-                android:textSize="@dimen/textview_middle_size"/>
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:background="@drawable/item_habit">
-            <ImageButton
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-
-                android:src="@drawable/habit_physique_pushup"
-                android:background="@null"
-                android:scaleType="fitXY"
-                android:adjustViewBounds="true"/>
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:gravity="center"
-                android:text="@string/habit_physique_pushup"
-                android:fontFamily="@font/montserrat_bold"
-                android:textSize="@dimen/textview_middle_size"/>
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:background="@drawable/item_habit">
-            <ImageButton
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-
-                android:src="@drawable/habit_physique_squat"
-                android:background="@null"
-                android:scaleType="fitXY"
-                android:adjustViewBounds="true"/>
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:gravity="center"
-                android:text="@string/habit_physique_squat"
-                android:fontFamily="@font/montserrat_bold"
-                android:textSize="@dimen/textview_middle_size"/>
-        </LinearLayout>
-
-    </GridLayout>
+    </TableLayout>
 
 </LinearLayout>
