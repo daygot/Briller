@@ -8,18 +8,18 @@
     <fragment
         android:id="@+id/navigation_home"
         android:name="com.goats.briller.main.ui.home.HomeFragment"
-        android:label="@string/main_fragment_home_icon_description"
+        android:label="@string/main_activity_home_icon_description"
         tools:layout="@layout/main_fragment_home" />
 
-main    <fragment
+    <fragment
         android:id="@+id/navigation_dashboard"
         android:name="com.goats.briller.main.ui.stats.StatsFragment"
-        android:label="@string/main_fragment_stats_icon_description"
+        android:label="@string/main_activity_stats_icon_description"
         tools:layout="@layout/main_fragment_stats" />
 
     <fragment
         android:id="@+id/navigation_notifications"
         android:name="com.goats.briller.main.ui.pethouse.PethouseFragment"
-        android:label="@string/main_fragment_pethouse_icon_description"
+        android:label="@string/main_activity_pethouse_icon_description"
         tools:layout="@layout/main_fragment_pethouse" />
 </navigation>

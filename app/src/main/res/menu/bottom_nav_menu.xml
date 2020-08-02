@@ -4,17 +4,17 @@
     <item
         android:id="@+id/main_navigation_home"
         android:icon="@drawable/main_navigation_home_icon"
-        android:title="@string/main_fragment_home_icon_description"
+        android:title="@string/main_activity_home_icon_description"
         />
 
     <item
         android:id="@+id/main_navigation_stats"
         android:icon="@drawable/main_navigation_stats_icon"
-        android:title="@string/main_fragment_stats_icon_description" />
+        android:title="@string/main_activity_stats_icon_description" />
 
     <item
         android:id="@+id/main_navigation_pethouse"
         android:icon="@drawable/main_navigation_pethouse_icon"
-        android:title="@string/main_fragment_pethouse_icon_description" />
+        android:title="@string/main_activity_pethouse_icon_description" />
 
 </menu>

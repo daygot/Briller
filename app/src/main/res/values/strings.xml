@@ -1,5 +1,6 @@
 <resources>
     <string name="app_name">Briller</string>
+    <string name="app_tag_line">shine on life.</string>
 
     <string name="onboarding_welcome_screen_quote_1">\"Habits become values. Values become destiny.\"\n - Gandhi</string>
     <string name="onboarding_select_partner_screen_title">Choose your accountability partner...</string>
@@ -14,9 +15,13 @@
     <string name="onboarding_instruction_title_3">Let\'s Get Started!</string>
 
     <string name="main_activity_home">home</string>
-    <string name="main_fragment_home_icon_description">Home</string>
-    <string name="main_fragment_stats_icon_description">Stats</string>
-    <string name="main_fragment_pethouse_icon_description">Pethouse</string>
+    <string name="main_activity_home_icon_description">Home</string>
+    <string name="main_activity_stats_icon_description">Stats</string>
+    <string name="main_activity_pethouse_icon_description">Pethouse</string>
+
+    <string name="stats_fragment_title">Achievement Stats</string>
+    <string name="stats_fragment_progress_bar_tooltip_1">Accomplishment Rate</string>
+    <string name="stats_fragment_progress_bar_tooltip_2">Habits Completed</string>
 
     <string name="habit_add">+ Add Habit</string>
 

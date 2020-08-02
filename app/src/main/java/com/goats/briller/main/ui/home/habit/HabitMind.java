@@ -11,6 +11,6 @@ public class HabitMind extends AppCompatActivity {
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.habit_physique_choose);
+        setContentView(R.layout.habit_mind_choose);
     }
 }
