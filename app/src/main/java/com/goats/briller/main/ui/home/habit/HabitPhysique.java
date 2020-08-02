@@ -13,7 +13,8 @@ import com.goats.briller.main.ui.home.stamp_card.StampCard;
 public class HabitPhysique extends AppCompatActivity implements View.OnClickListener {
 
     Intent intent;
-    ImageButton gym, run, pushup, squat, backButton;
+    ImageButton backButton, gym, run, pushup, squat;
+    String habitChosen;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -36,25 +37,16 @@ public class HabitPhysique extends AppCompatActivity implements View.OnClickList
     @Override
     public void onClick(View v) {
 
-        switch(v.getId()) {
-            case R.id.back_button:
-                onBackPressed();
-                break;
-
-            case R.id.habit_gym_button:
-                break;
-
-            case R.id.habit_run_button:
-                break;
-
-            case R.id.habit_pushup_button:
-                break;
-
-            case R.id.habit_squat_button:
-                break;
+        if (v.getId() == R.id.back_button) {
+            onBackPressed();
+            finish();
+            return;
         }
 
+        habitChosen = v.getTag().toString();
+
         intent = new Intent(this, StampCard.class);
+        intent.putExtra("habitTitle", habitChosen);
         startActivity(intent);
     }
 }

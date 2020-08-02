@@ -37,10 +37,10 @@
         <ImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:maxHeight="30dp"
-            android:maxWidth="30dp"
+            android:maxHeight="40dp"
+            android:maxWidth="40dp"
             android:adjustViewBounds="true"
-            android:scaleType="fitCenter"
+            android:scaleType="fitXY"
             android:src="@drawable/habit_mind_icon" />
 
     </LinearLayout>
@@ -69,6 +69,7 @@
                     android:maxWidth="120dp"
 
                     android:src="@drawable/habit_mind_meditate"
+                    android:tag="@string/habit_mind_meditate"
                     android:background="@null"
                     android:scaleType="fitXY"
                     android:adjustViewBounds="true"
@@ -95,6 +96,7 @@
                     android:maxWidth="120dp"
 
                     android:src="@drawable/habit_mind_read"
+                    android:tag="@string/habit_mind_read"
                     android:background="@null"
                     android:scaleType="fitXY"
                     android:adjustViewBounds="true"/>
@@ -125,6 +127,7 @@
                     android:maxWidth="120dp"
 
                     android:src="@drawable/habit_mind_journal"
+                    android:tag="@string/habit_mind_journal"
                     android:background="@null"
                     android:scaleType="fitXY"
                     android:adjustViewBounds="true"/>
@@ -150,6 +153,7 @@
                     android:maxHeight="120dp"
 
                     android:src="@drawable/habit_mind_study"
+                    android:tag="@string/habit_mind_study"
                     android:background="@null"
                     android:scaleType="fitXY"
                     android:adjustViewBounds="true"/>

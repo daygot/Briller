@@ -39,8 +39,8 @@
         <ImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:maxHeight="30dp"
-            android:maxWidth="30dp"
+            android:maxHeight="40dp"
+            android:maxWidth="40dp"
             android:adjustViewBounds="true"
             android:scaleType="fitCenter"
             android:src="@drawable/habit_physique_icon" />
@@ -64,6 +64,7 @@
                 android:background="@drawable/item_habit"
                 android:layout_marginRight="20dp">
                 <ImageButton
+                    android:transitionName=""
                     android:id="@+id/habit_gym_button"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -71,6 +72,7 @@
                     android:maxWidth="120dp"
 
                     android:src="@drawable/habit_physique_gym"
+                    android:tag="@string/habit_physique_gym"
                     android:background="@null"
                     android:scaleType="fitXY"
                     android:adjustViewBounds="true"
@@ -97,6 +99,7 @@
                     android:maxWidth="120dp"
 
                     android:src="@drawable/habit_physique_run"
+                    android:tag="@string/habit_physique_run"
                     android:background="@null"
                     android:scaleType="fitXY"
                     android:adjustViewBounds="true"/>
@@ -127,6 +130,7 @@
                     android:maxWidth="120dp"
 
                     android:src="@drawable/habit_physique_pushup"
+                    android:tag="@string/habit_physique_pushup"
                     android:background="@null"
                     android:scaleType="fitXY"
                     android:adjustViewBounds="true"/>
@@ -152,6 +156,7 @@
                     android:maxHeight="120dp"
 
                     android:src="@drawable/habit_physique_squat"
+                    android:tag="@string/habit_physique_squat"
                     android:background="@null"
                     android:scaleType="fitXY"
                     android:adjustViewBounds="true"/>

@@ -14,17 +14,18 @@ public class HabitMind extends AppCompatActivity implements View.OnClickListener
 
     Intent intent;
     ImageButton backButton, meditate, read, journal, study;
+    String habitChosen;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        setContentView(R.layout.habit_physique_choose);
+        setContentView(R.layout.habit_mind_choose);
         backButton = findViewById(R.id.back_button);
-        meditate = findViewById(R.id.habit_gym_button);
-        read = findViewById(R.id.habit_run_button);
-        journal = findViewById(R.id.habit_pushup_button);
-        study = findViewById(R.id.habit_squat_button);
+        meditate = findViewById(R.id.habit_meditate_button);
+        read = findViewById(R.id.habit_read_button);
+        journal = findViewById(R.id.habit_journal_button);
+        study = findViewById(R.id.habit_study_button);
 
         backButton.setOnClickListener(this);
         meditate.setOnClickListener(this);
@@ -36,25 +37,16 @@ public class HabitMind extends AppCompatActivity implements View.OnClickListener
     @Override
     public void onClick(View v) {
 
-        switch(v.getId()) {
-            case R.id.back_button:
-                onBackPressed();
-                break;
-
-            case R.id.habit_meditate_button:
-                break;
-
-            case R.id.habit_read_button:
-                break;
-
-            case R.id.habit_journal_button:
-                break;
-
-            case R.id.habit_study_button:
-                break;
+        if (v.getId() == R.id.back_button) {
+            onBackPressed();
+            finish();
+            return;
         }
 
+        habitChosen = v.getTag().toString();
+
         intent = new Intent(this, StampCard.class);
+        intent.putExtra("habitTitle", habitChosen);
         startActivity(intent);
     }
 }

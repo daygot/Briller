@@ -1,17 +1,121 @@
 package com.goats.briller.main.ui.home.stamp_card;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
+import android.view.View;
+import android.widget.ImageButton;
+import android.widget.ImageView;
+import android.widget.TextView;
 
 import com.goats.briller.R;
+import com.goats.briller.main.Home;
+import com.goats.briller.onboarding.OnboardingWelcomeScreen;
+
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
 
 public class StampCard extends AppCompatActivity {
+
+    String habitTitleIntent;
+
+    ImageView partnerIcon, habitIcon;
+    TextView habitTitle;
+
+    ImageButton backButton;
+
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.stamp_card_template);
 
-        
+        partnerIcon = findViewById(R.id.stampcard_partner_icon);
+        habitIcon = findViewById(R.id.stampcard_habit_icon);
+        habitTitle = findViewById(R.id.stampcard_habit_title);
+
+        backButton = findViewById(R.id.back_button);
+        backButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                onBackPressed();
+                finish();
+            }
+        });
+
+        setUpScreen();
+        setUpCard();
+    }
+
+    private void setUpScreen() {
+        try {
+            File directory = new File(getApplicationContext().getFilesDir(), "Onboarding_Info");
+            File onboardingInfo = new File(directory, "Pet_Data.json");
+
+            FileReader fileReader = new FileReader(onboardingInfo);
+            BufferedReader bufferedReader = new BufferedReader(fileReader);
+            StringBuilder stringBuilder = new StringBuilder();
+            String line = bufferedReader.readLine();
+            while (line != null){
+                stringBuilder.append(line).append("\n");
+                line = bufferedReader.readLine();
+            }
+            bufferedReader.close();
+            fileReader.close();
+
+            String onboardingData = stringBuilder.toString();
+            JSONObject onboardingDataJSON  = new JSONObject(onboardingData);
+
+            switch (onboardingDataJSON.get("PartnerChosen").toString()) {
+                case "dog":
+                    partnerIcon.setImageResource(R.drawable.onboarding_dog);
+                case "cat":
+                    partnerIcon.setImageResource(R.drawable.onboarding_cat);
+            }
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+    }
+
+    private void setUpCard() {
+        habitTitleIntent = getIntent().getStringExtra("habitTitle");
+        habitTitle.setText(habitTitleIntent);
+        switch (habitTitleIntent) {
+            case "Gym":
+                habitIcon.setImageResource(R.drawable.habit_physique_gym);
+                break;
+            case "Run":
+                habitIcon.setImageResource(R.drawable.habit_physique_run);
+                break;
+            case "Pushups":
+                habitIcon.setImageResource(R.drawable.habit_physique_pushup);
+                break;
+            case "Squats":
+                habitIcon.setImageResource(R.drawable.habit_physique_squat);
+                break;
+            case "Meditate":
+                habitIcon.setImageResource(R.drawable.habit_mind_meditate);
+                break;
+            case "Read":
+                habitIcon.setImageResource(R.drawable.habit_mind_read);
+                break;
+            case "Journal":
+                habitIcon.setImageResource(R.drawable.habit_mind_journal);
+                break;
+            case "Study":
+                habitIcon.setImageResource(R.drawable.habit_mind_study);
+                break;
+        }
+
     }
 }
