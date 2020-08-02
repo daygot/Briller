@@ -8,8 +8,6 @@
     android:gravity="center"
     android:background="@drawable/app_background"
     tools:context=".main.ui.home.habit.HabitMind"
-
-    android:clickable="true"
     >
 
     <LinearLayout
@@ -64,6 +62,7 @@
                 android:background="@drawable/item_habit"
                 android:layout_marginRight="20dp">
                 <ImageButton
+                    android:id="@+id/habit_meditate_button"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:maxHeight="120dp"
@@ -89,6 +88,7 @@
                 android:orientation="vertical"
                 android:background="@drawable/item_habit">
                 <ImageButton
+                    android:id="@+id/habit_read_button"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:maxHeight="120dp"
@@ -119,6 +119,7 @@
                 android:background="@drawable/item_habit"
                 android:layout_marginRight="20dp">
                 <ImageButton
+                    android:id="@+id/habit_journal_button"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:maxWidth="120dp"
@@ -142,6 +143,7 @@
                 android:orientation="vertical"
                 android:background="@drawable/item_habit">
                 <ImageButton
+                    android:id="@+id/habit_study_button"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:maxWidth="120dp"

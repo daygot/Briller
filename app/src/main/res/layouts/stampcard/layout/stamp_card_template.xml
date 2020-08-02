@@ -3,89 +3,154 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     android:gravity="center"
     android:background="@drawable/app_background">
 
-    <TableLayout
+    <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:layout_constraintLeft_toLeftOf="parent"
-        android:background="@drawable/item_habit"
-        >
+        android:layout_marginHorizontal="30dp"
+        android:gravity="center"
+        android:layout_marginBottom="-20dp">
 
-        <TableRow>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="20dp"
+            android:text="@string/stampcard_title"
+            android:textSize="@dimen/textview_big_0_size" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/onboarding_dog"
+            android:adjustViewBounds="true"
+            android:scaleType="fitXY"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="20dp"
+        android:background="@drawable/item_habit"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center"
+            >
+
+            <ImageButton
+                android:id="@+id/back_button"
+                android:layout_height="wrap_content"
+                android:layout_width="wrap_content"
+
+                android:src="@drawable/app_back_button"
+                android:scaleType="fitXY"
+                android:adjustViewBounds="true"/>
+
+            <ImageButton
+                android:id="@+id/stampcard_habit_icon"
+                android:layout_height="wrap_content"
+                android:layout_width="wrap_content"
+
+                android:src="@null"
+                android:scaleType="fitXY"
+                android:adjustViewBounds="true"/>
+
+            <TextView
+                android:id="@+id/stampcard_habit_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+
+                android:text="@null"
+                android:textSize="@dimen/textview_big_0_size"
+                />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:layout_marginBottom="10dp"
+            android:background="@drawable/functional_button">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                android:text="@string/stampcard_time"
+                android:textSize="@dimen/textview_middle_size"/>
+
+            <android.support.design.widget.TextInputEditText
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="2"
+                android:inputType="number" />
+
+            <ImageButton
+                android:id="@+id/stampcard_time_edit_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:src="@drawable/stampcard_parameter_edit"
+                android:background="@null" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:layout_marginBottom="10dp"
+            android:background="@drawable/functional_button">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                android:text="@string/stampcard_duration"
+                android:textSize="@dimen/textview_middle_size"/>
+
+            <android.support.design.widget.TextInputEditText
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="2"
+                android:inputType="number" />
+
+            <ImageButton
+                android:id="@+id/stampcard_duration_edit_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:src="@drawable/stampcard_parameter_edit"
+                android:background="@null" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
+            android:gravity="center">
 
             <LinearLayout
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal"
                 android:gravity="center"
-                >
+                android:layout_weight="1"
+                android:layout_marginRight="10dp"
 
-                <ImageButton
-                    android:id="@+id/habit_choose_back_button"
-                    android:layout_height="wrap_content"
-                    android:layout_width="wrap_content"
-
-                    android:background="@drawable/app_back_button"
-                    android:scaleType="fitXY"/>
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-
-                    android:text="@string/habit_choose"
-                    android:textSize="@dimen/textview_big_0_size"
-                    />
-
-            </LinearLayout>
-
-        </TableRow>
-
-        <TableRow>
-
-            <android.support.constraint.ConstraintLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-
-                android:background="@color/generic_button">
-
-                <TextView
-                    android:id="@+id/stampcard_time_title"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    app:layout_constraintLeft_toLeftOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"
-                    android:text="@string/stampcard_time" />
-
-                <android.support.design.widget.TextInputEditText
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintLeft_toRightOf="@id/stampcard_time_title"
-                    app:layout_constraintRight_toLeftOf="@id/stampcard_time_edit_button"
-                    android:inputType="number" />
-
-                <ImageButton
-                    android:id="@+id/stampcard_time_edit_button"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintRight_toRightOf="parent"
-                    android:src="@drawable/stampcard_parameter_edit"
-                    android:background="@null" />
-
-            </android.support.constraint.ConstraintLayout>
-
-        </TableRow>
-
-        <TableRow>
-
-            <android.support.constraint.ConstraintLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-
-                android:background="@color/generic_button">
+                android:background="@drawable/functional_button">
 
                 <TextView
                     android:id="@+id/stampcard_frequency"
@@ -104,13 +169,15 @@
                     android:src="@drawable/stampcard_frequency_dropdown"
                     android:background="@null" />
 
-            </android.support.constraint.ConstraintLayout>
+            </LinearLayout>
 
-            <android.support.constraint.ConstraintLayout
+            <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:gravity="center"
+                android:layout_weight="1"
 
-                android:background="@color/generic_button">
+                android:background="@drawable/functional_button">
 
                 <ImageView
                     android:id="@+id/stampcard_alarm_icon"
@@ -126,71 +193,16 @@
                     app:layout_constraintLeft_toRightOf="@id/stampcard_alarm_icon"
                     app:layout_constraintTop_toTopOf="parent" />
 
-            </android.support.constraint.ConstraintLayout>
+            </LinearLayout>
 
-        </TableRow>
+        </LinearLayout>
 
-        <TableRow>
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:background="@drawable/functional_button"
+            android:text="@string/stampcard_set"/>
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:background="@drawable/stampcard_progress"
-                android:text="1" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:background="@drawable/stampcard_progress"
-                android:text="2" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:background="@drawable/stampcard_progress"
-                android:text="3" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:background="@drawable/stampcard_progress"
-                android:text="4" />
-
-        </TableRow>
-
-        <TableRow>
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:background="@drawable/stampcard_progress"
-                android:text="5" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:background="@drawable/stampcard_progress"
-                android:text="6" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:background="@drawable/stampcard_progress"
-                android:text="3" />
-
-        </TableRow>
-
-        <TableRow>
-
-            <Button
-                android:id="@+id/stampcard_set"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:background="@color/generic_button"
-                android:text="@string/stampcard_set" />
-
-        </TableRow>
-
-    </TableLayout>
+    </LinearLayout>
 
 </LinearLayout>

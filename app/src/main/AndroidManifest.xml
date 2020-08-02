@@ -26,5 +26,6 @@
         <activity android:name=".main.ui.home.habit.HabitType" />
         <activity android:name=".main.ui.home.habit.HabitPhysique" />
         <activity android:name=".main.ui.home.habit.HabitMind" />
+        <activity android:name=".main.ui.home.stamp_card.StampCard" />
     </application>
 </manifest>

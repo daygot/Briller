@@ -64,6 +64,7 @@
                 android:background="@drawable/item_habit"
                 android:layout_marginRight="20dp">
                 <ImageButton
+                    android:id="@+id/habit_gym_button"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:maxHeight="120dp"
@@ -89,6 +90,7 @@
                 android:orientation="vertical"
                 android:background="@drawable/item_habit">
                 <ImageButton
+                    android:id="@+id/habit_run_button"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:maxHeight="120dp"
@@ -119,6 +121,7 @@
             android:background="@drawable/item_habit"
             android:layout_marginRight="20dp">
                 <ImageButton
+                    android:id="@+id/habit_pushup_button"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:maxWidth="120dp"
@@ -142,6 +145,7 @@
                 android:orientation="vertical"
                 android:background="@drawable/item_habit">
                 <ImageButton
+                    android:id="@+id/habit_squat_button"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:maxWidth="120dp"

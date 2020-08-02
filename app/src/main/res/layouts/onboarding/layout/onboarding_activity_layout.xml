@@ -14,11 +14,9 @@
         android:layout_marginTop="70dp">
 
         <ImageButton
-            android:id="@+id/onboarding_instruction_back_button"
+            android:id="@+id/back_button"
             android:layout_height="wrap_content"
             android:layout_width="wrap_content"
-            android:layout_alignTop="@id/onboarding_instruction_title"
-            android:layout_toLeftOf="@id/onboarding_instruction_title"
 
             android:background="@drawable/app_back_button"
             android:scaleType="fitXY"/>
@@ -27,10 +25,9 @@
             android:id="@+id/onboarding_instruction_title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_centerInParent="true"
 
             android:text="@string/onboarding_instruction_title_0"
-            android:textSize="18sp"
+            android:textSize="@dimen/textview_big_0_size"
             />
 
     </LinearLayout>
@@ -41,13 +38,20 @@
         android:id="@+id/onboarding_instruction_container"
         />
 
-    <ImageView
-        android:id="@+id/onboarding_instruction_progress"
+    <LinearLayout
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="60dp"
-        android:layout_marginRight="60dp"
-        android:layout_below="@id/onboarding_instruction_container"
-        android:src="@drawable/onboarding_instruction_progress_0" />
+        android:layout_height="fill_parent"
+        android:gravity="center">
+
+        <ImageView
+            android:id="@+id/onboarding_instruction_progress"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="60dp"
+            android:layout_marginRight="60dp"
+            android:src="@drawable/onboarding_instruction_progress_0" />
+
+    </LinearLayout>
+
 
 </LinearLayout>
