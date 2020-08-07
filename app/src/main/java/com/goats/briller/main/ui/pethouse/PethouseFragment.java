@@ -1,34 +1,51 @@
 package com.goats.briller.main.ui.pethouse;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.TextView;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.arch.lifecycle.Observer;
 import android.arch.lifecycle.ViewModelProviders;
+import android.widget.ImageButton;
 
 import com.goats.briller.R;
 
-public class PethouseFragment extends Fragment {
+public class PethouseFragment extends Fragment implements View.OnClickListener {
 
-    private PethouseViewModel pethouseViewModel;
+    ImageButton rewards, store;
+    Intent intent;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
-        pethouseViewModel =
-                ViewModelProviders.of(this).get(PethouseViewModel.class);
         View root = inflater.inflate(R.layout.main_fragment_pethouse, container, false);
-        final TextView textView = root.findViewById(R.id.text_notifications);
-        pethouseViewModel.getText().observe(getViewLifecycleOwner(), new Observer<String>() {
-            @Override
-            public void onChanged(@Nullable String s) {
-                textView.setText(s);
-            }
-        });
         return root;
+    }
+
+    @Override
+    public void onViewCreated(View view, Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+
+        rewards = getView().findViewById(R.id.pethouse_rewards);
+        store = getView().findViewById(R.id.pethouse_store);
+
+        rewards.setOnClickListener(this);
+        store.setOnClickListener(this);
+    }
+
+    @Override
+    public void onClick(View v) {
+        switch (v.getId()) {
+            case R.id.pethouse_rewards:
+                intent = new Intent(getContext(), PethouseRewards.class);
+                break;
+            case R.id.pethouse_store:
+                intent = new Intent(getContext(), PethouseStore.class);
+                break;
+        }
+        startActivity(intent);
     }
 }

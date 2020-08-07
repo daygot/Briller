@@ -23,7 +23,7 @@ android {
     sourceSets {
         main {
             res {
-                srcDirs 'src/main/res', 'src/main/res/layouts/onboarding', 'src/main/res/layouts/stampcard', 'src/main/res/layouts/habit', 'src/main/res/layouts/main'
+                srcDirs 'src/main/res', 'src/main/res/layouts/onboarding', 'src/main/res/layouts/stampcard', 'src/main/res/layouts/habit', 'src/main/res/layouts/main', 'src/main/res/layouts/pethouse'
             }
         }
     }

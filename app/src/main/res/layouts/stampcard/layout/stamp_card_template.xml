@@ -61,7 +61,7 @@
                 android:maxWidth="40dp"
                 android:maxHeight="40dp"
 
-                android:src="@null"
+                android:src="@drawable/habit_general"
                 android:scaleType="fitXY"
                 android:adjustViewBounds="true"/>
 

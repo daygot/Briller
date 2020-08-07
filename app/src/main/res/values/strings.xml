@@ -45,4 +45,11 @@
     <string name="stampcard_frequency_daily">Daily</string>
     <string name="stampcard_set">Set</string>
 
+    <string name="pethouse_skin_title">Skins</string>
+    <string name="pethouse_skin_active">Active</string>
+    <string name="pethouse_skin_select">Select</string>
+    <string name="pethouse_skin_ollie_1">Good ol\' Ollie. Dogs are like that, I guess. They know how to fix you, all without saying a word.</string>
+    <string name="pethouse_skin_ollie_superman">Superman Ollie. Your most trusty companion, now with a cape.</string>
+    <string name="pethouse_skin_ollie_superman_unlock">Unlocked with a 7 day streak</string>
+
 </resources>

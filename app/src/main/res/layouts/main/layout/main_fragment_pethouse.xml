@@ -4,19 +4,55 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:layout_marginHorizontal="20dp"
     tools:context=".main.ui.pethouse.PethouseFragment">
 
-    <TextView
-        android:id="@+id/text_notifications"
-        android:layout_width="match_parent"
+    <LinearLayout
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
-        android:textAlignment="center"
-        android:textSize="20sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:layout_marginBottom="40dp"
+        android:orientation="vertical"
+        app:layout_constraintRight_toRightOf="@id/pethouse_island"
+        app:layout_constraintBottom_toTopOf="@id/pethouse_island"
+        >
+
+        <ImageButton
+            android:id="@+id/pethouse_rewards"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
+            android:adjustViewBounds="true"
+            android:scaleType="fitXY"
+            android:maxHeight="80dp"
+            android:maxWidth="80dp"
+            android:src="@drawable/pethouse_rewards" />
+
+        <ImageButton
+            android:id="@+id/pethouse_store"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:adjustViewBounds="true"
+            android:scaleType="fitXY"
+            android:maxHeight="80dp"
+            android:maxWidth="80dp"
+            android:src="@drawable/pethouse_store" />
+
+    </LinearLayout>
+
+    <android.support.constraint.Guideline
+        android:id="@+id/pethouse_guideline"
+        android:orientation="horizontal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintGuide_percent="0.75" />
+
+    <ImageView
+        android:id="@+id/pethouse_island"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toTopOf="@id/pethouse_guideline"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:src="@drawable/briller_logo"
+        />
+
 </android.support.constraint.ConstraintLayout>
