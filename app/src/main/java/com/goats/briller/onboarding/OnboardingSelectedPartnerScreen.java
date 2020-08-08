@@ -66,83 +66,61 @@ public class OnboardingSelectedPartnerScreen extends AppCompatActivity {
             }
         });
 
-        StampCard gym_stampCard = new StampCard("Gym", null,
-                null, null,
-                null,null, null, null);
+        JSONObject jsonObject = new JSONObject();
 
-        StampCard run_stampCard = new StampCard("Run", null,
-                null, null,
-                null,null, null, null);
-
-        StampCard pushUps_stampCard = new StampCard("Push Ups", null,
-                null, null,
-                null,null, null, null);
-
-        StampCard squats_stampCard = new StampCard("Squats", null,
-                null, null,
-                null,null, null, null);
-
-        StampCard meditation_stampCard = new StampCard("Meditation", null,
-                null, null,
-                null,null, null, null);
-
-        StampCard Reading_stampCard = new StampCard("Reading", null,
-                null, null,
-                null,null, null, null);
-
-        StampCard Journal_stampCard = new StampCard("Journal", null,
-                null, null,
-                null,null, null, null);
-
-        StampCard Study_stampCard = new StampCard("Study", null,
-                null, null,
-                null,null, null, null);
-
-        System.out.println(all_stampCards);
-        System.out.println(gym_stampCard);
-
-        all_stampCards.add(gym_stampCard);
-        all_stampCards.add(run_stampCard);
-        all_stampCards.add(pushUps_stampCard);
-        all_stampCards.add(squats_stampCard);
-        all_stampCards.add(meditation_stampCard);
-        all_stampCards.add(Reading_stampCard);
-        all_stampCards.add(Journal_stampCard);
-        all_stampCards.add(Study_stampCard);
-
-        JSONObject hashMap_StampCards_progress = new JSONObject();
 
         try {
-            hashMap_StampCards_progress.put("Monday", 0);
-            hashMap_StampCards_progress.put("Tuesday", 0);
-            hashMap_StampCards_progress.put("Wednesday", 0);
-            hashMap_StampCards_progress.put("Thursday", 0);
-            hashMap_StampCards_progress.put("Friday", 0);
-            hashMap_StampCards_progress.put("Saturday", 0);
-            hashMap_StampCards_progress.put("Sunday", 0);
+
+            System.out.println("Inside Try");
+
+            StampCard gym_stampCard = new StampCard("Gym");
+
+            StampCard run_stampCard = new StampCard("Run");
+
+            StampCard pushUps_stampCard = new StampCard("Push Ups");
+
+            StampCard squats_stampCard = new StampCard("Squats");
+
+            StampCard meditation_stampCard = new StampCard("Meditation");
+
+            StampCard Reading_stampCard = new StampCard("Reading");
+
+            StampCard Journal_stampCard = new StampCard("Journal");
+
+            StampCard Study_stampCard = new StampCard("Study");
+
+            System.out.println(gym_stampCard.getHabit());
+
+            all_stampCards.add(gym_stampCard);
+            all_stampCards.add(run_stampCard);
+            all_stampCards.add(pushUps_stampCard);
+            all_stampCards.add(squats_stampCard);
+            all_stampCards.add(meditation_stampCard);
+            all_stampCards.add(Reading_stampCard);
+            all_stampCards.add(Journal_stampCard);
+            all_stampCards.add(Study_stampCard);
+
+            System.out.println(all_stampCards);
+
+
+
+            for (int i = 0; i < all_stampCards.size(); i++) {
+
+
+                try {
+                    jsonObject.put(all_stampCards.get(i).getHabit(), all_stampCards.get(i).getWeekday_scores());
+
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+
+            }
+
         } catch (JSONException e) {
             e.printStackTrace();
         }
 
-        JSONObject jsonObject = new JSONObject();
 
-        for (int i = 0; i < all_stampCards.size(); i++) {
-
-            JSONObject hashMap_StampCards = new JSONObject();
-
-            try {
-                hashMap_StampCards.put(all_stampCards.get(i).getHabit(), hashMap_StampCards_progress);
-            } catch (JSONException e) {
-                e.printStackTrace();
-            }
-
-            try {
-                jsonObject.put(String.valueOf(i), hashMap_StampCards);
-            } catch (JSONException e) {
-                e.printStackTrace();
-            }
-
-        }
 
         File directory = new File(getApplicationContext().getFilesDir(), "StampCards");
 
