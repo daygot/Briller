@@ -32,7 +32,7 @@ public class PethouseRewards extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.pethouse_store);
+        setContentView(R.layout.pethouse_rewards);
 
         try {
             File directory = new File(getApplicationContext().getFilesDir(), "Onboarding_Info");
@@ -70,6 +70,8 @@ public class PethouseRewards extends AppCompatActivity {
             @Override
             public View makeView() {
                 ImageView imageView = new ImageView(PethouseRewards.this);
+                imageView.setScaleType(ImageView.ScaleType.FIT_XY);
+                imageView.setAdjustViewBounds(true);
                 imageView.setImageResource(skins[imagePosition]);
                 return imageView;
             }
@@ -84,16 +86,20 @@ public class PethouseRewards extends AppCompatActivity {
         previous.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (imagePosition > 0) imagePosition--;
-                imageSwitcher.setImageResource(skins[imagePosition]);
+                if (imagePosition > 0) {
+                    imagePosition--;
+                    imageSwitcher.setImageResource(skins[imagePosition]);
+                }
             }
         });
 
         next.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (imagePosition < skins.length - 1) imagePosition++;
-                imageSwitcher.setImageResource(skins[imagePosition]);
+                if (imagePosition < skins.length - 1) {
+                    imagePosition++;
+                    imageSwitcher.setImageResource(skins[imagePosition]);
+                }
             }
         });
     }

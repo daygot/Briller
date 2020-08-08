@@ -2,6 +2,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:gravity="center"
     xmlns:tools="http://schemas.android.com/tools"
     tools:context=".main.ui.pethouse.PethouseRewards"
@@ -22,18 +23,23 @@
             android:id="@+id/pethouse_skin_previous"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_weight="1"
             android:src="@drawable/app_back_button" />
 
         <ImageSwitcher
             android:id="@+id/pethouse_skin_switcher"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_weight="2"
+            android:background="@null"
+            app:srcCompat="@drawable/island_beach"
             />
 
         <ImageButton
             android:id="@+id/pethouse_skin_next"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_weight="1"
             android:src="@drawable/app_back_button" />
 
     </LinearLayout>

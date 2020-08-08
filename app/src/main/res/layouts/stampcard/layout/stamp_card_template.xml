@@ -111,97 +111,29 @@
         <LinearLayout
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:gravity="center"
             android:layout_marginBottom="10dp"
+            android:gravity="center"
+
             android:background="@drawable/functional_button">
 
-            <TextView
+            <ImageView
+                android:id="@+id/stampcard_alarm_icon"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
                 app:layout_constraintLeft_toLeftOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                android:text="@string/stampcard_duration"
-                android:textSize="@dimen/textview_middle_size"/>
+                android:src="@drawable/stampcard_alarm" />
 
-            <android.support.design.widget.TextInputEditText
+            <ToggleButton
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_weight="2"
-                android:inputType="number" />
-
-            <ImageButton
-                android:id="@+id/stampcard_duration_edit_button"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:src="@drawable/stampcard_parameter_edit"
-                android:background="@null" />
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="10dp"
-            android:gravity="center">
-
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:gravity="center"
-                android:layout_weight="1"
-                android:layout_marginRight="10dp"
-
-                android:background="@drawable/functional_button">
-
-                <TextView
-                    android:id="@+id/stampcard_frequency"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    app:layout_constraintLeft_toLeftOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"
-                    android:text="@string/stampcard_frequency_daily" />
-
-                <ImageButton
-                    android:id="@+id/stampcard_frequency_edit_button"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintRight_toRightOf="parent"
-                    android:src="@drawable/stampcard_frequency_dropdown"
-                    android:background="@null" />
-
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:gravity="center"
-                android:layout_weight="1"
-
-                android:background="@drawable/functional_button">
-
-                <ImageView
-                    android:id="@+id/stampcard_alarm_icon"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    app:layout_constraintLeft_toLeftOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"
-                    android:src="@drawable/stampcard_alarm" />
-
-                <ToggleButton
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    app:layout_constraintLeft_toRightOf="@id/stampcard_alarm_icon"
-                    app:layout_constraintTop_toTopOf="parent" />
-
-            </LinearLayout>
+                app:layout_constraintLeft_toRightOf="@id/stampcard_alarm_icon"
+                app:layout_constraintTop_toTopOf="parent" />
 
         </LinearLayout>
 
         <Button
-            android:layout_width="wrap_content"
+            android:layout_width="fill_parent"
             android:layout_height="match_parent"
             android:background="@drawable/functional_button"
             android:text="@string/stampcard_set"/>

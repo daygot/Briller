@@ -22,8 +22,13 @@ public class OnboardingInstruction4 extends Fragment {
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.ob_instruction_4, container, false);
+        return view;
+    }
 
-        continueButton = getActivity().findViewById(R.id.onboarding_instruction_finish);
+    @Override
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+        continueButton = getView().findViewById(R.id.onboarding_instruction_finish);
         continueButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -32,7 +37,5 @@ public class OnboardingInstruction4 extends Fragment {
                 getActivity().finish();
             }
         });
-
-        return view;
     }
 }
