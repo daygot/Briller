@@ -1,6 +1,148 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:gravity="center"
+    android:background="@drawable/app_background">
+
+    <android.support.constraint.ConstraintLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content">
+
+        <ImageButton
+            android:id="@+id/back_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:src="@drawable/app_back_button"/>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            android:background="@drawable/functional_button"
+            android:padding="20dp">
+
+            <ImageButton
+                android:id="@+id/pethouse_store_pets"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:maxWidth="50dp"
+                android:maxHeight="50dp"
+
+                android:layout_marginRight="10dp"
+
+                android:adjustViewBounds="true"
+                android:scaleType="fitXY"
+                android:src="@drawable/pethouse_store_pets"
+                android:background="@null"/>
+
+            <ImageButton
+                android:id="@+id/pethouse_store_islands"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:maxWidth="50dp"
+                android:maxHeight="50dp"
+
+                android:adjustViewBounds="true"
+                android:scaleType="fitXY"
+                android:src="@drawable/pethouse_store_islands"
+                android:background="@null"/>
+
+        </LinearLayout>
+
+    </android.support.constraint.ConstraintLayout>
+
+
+    <TableLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+
+        android:layout_margin="30dp">
+
+        <TableRow android:layout_weight="1"
+            android:layout_marginBottom="20dp">
+
+            <ImageView
+                android:id="@+id/pethouse_store_item_1"
+                android:layout_height="wrap_content"
+                android:layout_width="wrap_content"
+                android:layout_weight="1"
+                android:layout_marginRight="10dp"
+
+                android:scaleType="fitXY"
+                android:adjustViewBounds="true"
+                android:src="@drawable/premium_pet_bear" />
+
+            <ImageView
+                android:id="@+id/pethouse_store_item_2"
+                android:layout_height="wrap_content"
+                android:layout_width="wrap_content"
+                android:layout_weight="1"
+
+                android:scaleType="fitXY"
+                android:adjustViewBounds="true"
+                android:src="@drawable/premium_pet_tiger" />
+
+        </TableRow>
+
+        <TableRow android:layout_weight="1"
+            android:layout_marginBottom="20dp">
+
+            <ImageView
+                android:id="@+id/pethouse_store_item_3"
+                android:layout_height="wrap_content"
+                android:layout_width="wrap_content"
+                android:layout_weight="1"
+                android:layout_marginRight="10dp"
+
+                android:scaleType="fitXY"
+                android:adjustViewBounds="true"
+                android:src="@drawable/premium_pet_grey_cat" />
+
+            <ImageView
+                android:id="@+id/pethouse_store_item_4"
+                android:layout_height="wrap_content"
+                android:layout_width="wrap_content"
+                android:layout_weight="1"
+
+                android:scaleType="fitXY"
+                android:adjustViewBounds="true"
+                android:src="@drawable/premium_pet_deer" />
+
+        </TableRow>
+
+        <TableRow android:layout_weight="1">
+
+            <ImageView
+                android:id="@+id/pethouse_store_item_5"
+                android:layout_height="wrap_content"
+                android:layout_width="wrap_content"
+                android:layout_weight="1"
+                android:layout_marginRight="10dp"
+
+                android:scaleType="fitXY"
+                android:adjustViewBounds="true"
+                android:src="@drawable/premium_pet_pig" />
+
+            <ImageView
+                android:id="@+id/pethouse_store_item_6"
+                android:layout_height="wrap_content"
+                android:layout_width="wrap_content"
+                android:layout_weight="1"
+
+                android:scaleType="fitXY"
+                android:adjustViewBounds="true"
+                android:src="@drawable/premium_pet_orange_cat" />
+
+        </TableRow>
+
+    </TableLayout>
 
 </LinearLayout>

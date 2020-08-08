@@ -13,6 +13,7 @@
     <string name="onboarding_instruction_title_1">Set Goals, Earn Stars.</string>
     <string name="onboarding_instruction_title_2">Unlock Tricks and Skins.</string>
     <string name="onboarding_instruction_title_3">Let\'s Get Started!</string>
+    <string name="onboarding_instruction_finish">Continue</string>
 
     <string name="main_activity_home">home</string>
     <string name="main_activity_home_icon_description">Home</string>

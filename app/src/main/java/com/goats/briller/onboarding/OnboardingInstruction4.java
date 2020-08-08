@@ -1,5 +1,6 @@
 package com.goats.briller.onboarding;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -11,26 +12,26 @@ import android.widget.Button;
 import android.widget.Toast;
 
 import com.goats.briller.R;
+import com.goats.briller.main.Home;
 
 public class OnboardingInstruction4 extends Fragment {
 
-    private Button forward_button;
+    private Button continueButton;
 
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.ob_instruction_4, container, false);
 
-//        forward_button = view.findViewById(R.id.complete_registration);
-//
-//        forward_button.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                Toast.makeText(getActivity(), "Going to Fragment 2!", Toast.LENGTH_SHORT).show();
-//
-//                ((OnboardingActivity)getActivity()).setViewPager(FLOW_NUMBER);
-//            }
-//        });
+        continueButton = getActivity().findViewById(R.id.onboarding_instruction_finish);
+        continueButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getActivity(), Home.class);
+                startActivity(intent);
+                getActivity().finish();
+            }
+        });
 
         return view;
     }
