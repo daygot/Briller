@@ -1,39 +1,34 @@
 package com.goats.briller.main.ui.stats;
 
+import android.content.Context;
 
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import java.io.BufferedWriter;
 import java.io.File;
-import java.io.FileWriter;
-import java.util.ArrayList;
+import java.sql.Timestamp;
+import java.util.HashMap;
 
-public class StampCard {
+public class StampCard extends JSONObject {
 
     String habit;
-    Integer monday_score;
-    Integer tuesday_score;
-    Integer wednesday_score;
-    Integer thursday_score;
-    Integer friday_score;
-    Integer saturday_score;
-    Integer sunday_score;
+    JSONObject weekday_scores = new JSONObject();
+    Timestamp habit_start_time;
 
 
-    public StampCard(String habit, Integer monday_score, Integer tuesday_score,
-                     Integer wednesday_score, Integer thursday_score, Integer friday_score,
-                     Integer saturday_score, Integer sunday_score) {
+    public StampCard(String habit) throws JSONException {
 
         this.habit = habit;
-        this.monday_score = monday_score;
-        this.tuesday_score = tuesday_score;
-        this.wednesday_score = wednesday_score;
-        this.thursday_score = thursday_score;
-        this.friday_score = friday_score;
-        this.saturday_score = saturday_score;
-        this.sunday_score = sunday_score;
 
+        this.habit_start_time = null;
+
+        this.weekday_scores.put("Day 1", 0);
+        this.weekday_scores.put("Day 2", 0);
+        this.weekday_scores.put("Day 3", 0);
+        this.weekday_scores.put("Day 4", 0);
+        this.weekday_scores.put("Day 5", 0);
+        this.weekday_scores.put("Day 6", 0);
+        this.weekday_scores.put("Day 7", 0);
 
     }
 
@@ -41,5 +36,21 @@ public class StampCard {
         return habit;
     }
 
+    public JSONObject getWeekday_scores() {
+        return weekday_scores;
+    }
+
+    public void updateScore(Context context){
+
+        File stampcard_file = new File(context.getFilesDir(), "StampCards.json");
+
+
+    }
+
+
+
+//    public void CompleteDay(String day) throws JSONException {
+//        this.weekday_scores.put(day, 1);
+//    }
 
 }
