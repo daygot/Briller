@@ -6,11 +6,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.TextView;
 import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
-import android.arch.lifecycle.Observer;
 import android.arch.lifecycle.ViewModelProviders;
 
 import com.goats.briller.R;
@@ -42,5 +39,9 @@ public class HomeFragment extends Fragment {
                 startActivity(new Intent(getContext(), HabitType.class));
             }
         });
+    }
+
+    public void stampcardMade() {
+        return;
     }
 }

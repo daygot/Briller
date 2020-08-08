@@ -73,13 +73,52 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:orientation="vertical"
         android:gravity="center"
         android:layout_marginTop="50dp"
         >
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:layout_marginHorizontal="10dp"
+            android:layout_marginBottom="10dp">
+
+            <LinearLayout
+                android:id="@+id/habit_container"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+<!--                <LinearLayout-->
+<!--                    android:layout_width="wrap_content"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:orientation="horizontal">-->
+
+<!--                    <TextView android:layout_height="wrap_content"-->
+<!--                        android:layout_width="fill_parent"-->
+<!--                        android:background="@drawable/item_habit"-->
+<!--                        android:text=""-->
+
+<!--                        android:gravity="center" />-->
+
+<!--                    <ImageButton-->
+<!--                        android:layout_width="wrap_content"-->
+<!--                        android:layout_height="wrap_content" />-->
+
+<!--                </LinearLayout>-->
+
+            </LinearLayout>
+
+        </LinearLayout>
+
         <Button
             android:id="@+id/add_habit_button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:visibility="visible"
 
             android:background="@drawable/item_habit"
             android:text="@string/habit_add"

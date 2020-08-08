@@ -42,6 +42,7 @@
 
     <string name="stampcard_title">Habit Stampcard</string>
     <string name="stampcard_time">Time:</string>
+    <string name="stampcard_time_minutes">minutes</string>
     <string name="stampcard_duration">Duration:</string>
     <string name="stampcard_frequency_daily">Daily</string>
     <string name="stampcard_set">Set</string>

@@ -7,8 +7,8 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 
-import com.goats.briller.R;
-import com.goats.briller.main.ui.stats.StampCard;
+import com.goats.briller.R;;
+import com.goats.briller.main.ui.stats.StampCardObject;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -17,14 +17,12 @@ import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Hashtable;
 
 public class OnboardingSelectedPartnerScreen extends AppCompatActivity {
 
     Button enterButton;
     String partnerChose, partnerDefaultName;
-    ArrayList<StampCard> all_stampCards = new ArrayList<>();
+    ArrayList<StampCardObject> all_stampCards = new ArrayList<>();
 
 
     protected void onCreate(Bundle savedInstanceState) {
@@ -70,26 +68,21 @@ public class OnboardingSelectedPartnerScreen extends AppCompatActivity {
 
 
         try {
+            StampCardObject gym_stampCard = new StampCardObject("Gym");
 
-            System.out.println("Inside Try");
+            StampCardObject run_stampCard = new StampCardObject("Run");
 
-            StampCard gym_stampCard = new StampCard("Gym");
+            StampCardObject pushUps_stampCard = new StampCardObject("Push Ups");
 
-            StampCard run_stampCard = new StampCard("Run");
+            StampCardObject squats_stampCard = new StampCardObject("Squats");
 
-            StampCard pushUps_stampCard = new StampCard("Push Ups");
+            StampCardObject meditation_stampCard = new StampCardObject("Meditation");
 
-            StampCard squats_stampCard = new StampCard("Squats");
+            StampCardObject Reading_stampCard = new StampCardObject("Reading");
 
-            StampCard meditation_stampCard = new StampCard("Meditation");
+            StampCardObject Journal_stampCard = new StampCardObject("Journal");
 
-            StampCard Reading_stampCard = new StampCard("Reading");
-
-            StampCard Journal_stampCard = new StampCard("Journal");
-
-            StampCard Study_stampCard = new StampCard("Study");
-
-            System.out.println(gym_stampCard.getHabit());
+            StampCardObject Study_stampCard = new StampCardObject("Study");
 
             all_stampCards.add(gym_stampCard);
             all_stampCards.add(run_stampCard);
@@ -100,20 +93,12 @@ public class OnboardingSelectedPartnerScreen extends AppCompatActivity {
             all_stampCards.add(Journal_stampCard);
             all_stampCards.add(Study_stampCard);
 
-            System.out.println(all_stampCards);
-
-
-
             for (int i = 0; i < all_stampCards.size(); i++) {
-
-
                 try {
-                    jsonObject.put(all_stampCards.get(i).getHabit(), all_stampCards.get(i).getWeekday_scores());
-
+                    jsonObject.put(all_stampCards.get(i).getHabit(), all_stampCards.get(i).getStampcardData());
                 } catch (JSONException e) {
                     e.printStackTrace();
                 }
-
             }
 
         } catch (JSONException e) {

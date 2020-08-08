@@ -5,9 +5,12 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
+import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.ToggleButton;
 
 import com.goats.briller.R;
 import com.goats.briller.main.Home;
@@ -20,6 +23,7 @@ import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
+import java.io.FileWriter;
 import java.io.IOException;
 
 public class StampCard extends AppCompatActivity {
@@ -30,6 +34,9 @@ public class StampCard extends AppCompatActivity {
     TextView habitTitle;
 
     ImageButton backButton;
+    EditText timeInput;
+    ToggleButton alarmToggle;
+    Button submitButton;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -39,6 +46,9 @@ public class StampCard extends AppCompatActivity {
         partnerIcon = findViewById(R.id.stampcard_partner_icon);
         habitIcon = findViewById(R.id.stampcard_habit_icon);
         habitTitle = findViewById(R.id.stampcard_habit_title);
+        submitButton = findViewById(R.id.stampcard_submit_button);
+        timeInput = findViewById(R.id.stampcard_time_input);
+        alarmToggle = findViewById(R.id.stampcard_alarm_status);
 
         backButton = findViewById(R.id.back_button);
         backButton.setOnClickListener(new View.OnClickListener() {
@@ -46,6 +56,68 @@ public class StampCard extends AppCompatActivity {
             public void onClick(View v) {
                 onBackPressed();
                 finish();
+            }
+        });
+
+        submitButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                // Modify the stampcards.json
+
+                try {
+                    File directory = new File(getApplicationContext().getFilesDir(), "StampCards");
+                    File stampcards = new File(directory, "StampCards.json");
+
+                    FileReader fileReader = new FileReader(stampcards);
+                    BufferedReader bufferedReader = new BufferedReader(fileReader);
+                    StringBuilder stringBuilder = new StringBuilder();
+                    String line = bufferedReader.readLine();
+                    while (line != null){
+                        stringBuilder.append(line).append("\n");
+                        line = bufferedReader.readLine();
+                    }
+                    bufferedReader.close();
+                    fileReader.close();
+
+                    String stampcardsData = stringBuilder.toString();
+
+                    System.out.println(stampcardsData);
+
+                    JSONObject stampcardsJSON  = new JSONObject(stampcardsData);
+
+                    JSONObject stampcardToModify = stampcardsJSON.getJSONObject(habitTitle.getText().toString());
+                    stampcardToModify.put("alarm", alarmToggle.isChecked());
+                    stampcardToModify.put("timer", Integer.parseInt(timeInput.getText().toString()));
+                    stampcardToModify.put("habitStartTime", System.currentTimeMillis());
+
+                    System.out.println(stampcardToModify);
+
+                    FileWriter writer = new FileWriter(stampcards);
+
+                    JSONObject newStampcards = stampcardsJSON;
+
+                    writer.append(newStampcards.toString());
+                    writer.flush();
+                    writer.close();
+
+
+                } catch (FileNotFoundException e) {
+                    Intent intent = new Intent(getApplicationContext(), OnboardingWelcomeScreen.class);
+                    startActivity(intent);
+                    finish();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+
+//                Intent intent = new Intent(getApplicationContext(), Home.class);
+//                intent.putExtra("habit", habitTitle.getText().toString());
+//                intent.putExtra("Timer", Integer.parseInt(timeInput.getText().toString()));
+//                intent.putExtra("Alarm", alarmToggle.isChecked());
+//                startActivity(intent);
+//                finish();
             }
         });
 
