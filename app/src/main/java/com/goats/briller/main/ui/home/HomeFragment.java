@@ -77,7 +77,7 @@ public class HomeFragment extends Fragment {
 
             while(keys.hasNext()) {
                 String key = keys.next();
-                JSONObject habit = (JSONObject) stampcardsJSON.get(key);
+                final JSONObject habit = (JSONObject) stampcardsJSON.get(key);
                 if (habit.get("started").equals(true)) {
                     TableRow habitRow = new TableRow(getActivity());
                     habitRow.setBackgroundResource(R.drawable.item_habit);
@@ -95,6 +95,11 @@ public class HomeFragment extends Fragment {
                         @Override
                         public void onClick(View v) {
                             Intent intent = new Intent(getActivity().getApplicationContext(), HabitTimer.class);
+                            try {
+                                intent.putExtra("timer", Integer.parseInt(habit.get("timer").toString()));
+                            } catch (JSONException e) {
+                                e.printStackTrace();
+                            }
                             startActivity(intent);
                         }
                     });

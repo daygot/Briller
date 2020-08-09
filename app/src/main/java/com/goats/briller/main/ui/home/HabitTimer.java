@@ -12,13 +12,13 @@ public class HabitTimer extends AppCompatActivity {
 
     private CountDownTimer countDownTimer;
 
-    private long timeLeftinMilliseconds = 600000; // 10 mins in ms.
+    private long timeLeftinMilliseconds;
     private boolean timerRunning;
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.habit_timer);
-
+        timeLeftinMilliseconds = getIntent().getIntExtra("timer", 0);
         countdownText = findViewById(R.id.countdown_text);
 
         start();
