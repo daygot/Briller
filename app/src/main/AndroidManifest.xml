@@ -29,5 +29,6 @@
         <activity android:name=".main.ui.home.stamp_card.StampCard" />
         <activity android:name=".main.ui.pethouse.PethouseRewards" />
         <activity android:name=".main.ui.pethouse.PethouseStore" />
+        <activity android:name=".main.ui.home.HabitTimer" />
     </application>
 </manifest>
