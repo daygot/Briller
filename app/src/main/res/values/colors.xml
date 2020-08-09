@@ -7,7 +7,8 @@
     <color name="bottom_nav_icon_background">#E9D6B9</color>
     <color name="bottom_nav_icon_background_selected">#D6B88A</color>
 
-    <color name="item_display_background">#F7D3D3</color>
+    <color name="habit_completion_bad">#F7D3D3</color>
+    <color name="habit_completion_good">#B3F3B6</color>
 
     <color name="item_habit_starting_blue">#F4FEFF</color>
     <color name="item_habit_ending_blue">#AFFAFF</color>

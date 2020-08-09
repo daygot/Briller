@@ -3,7 +3,7 @@ package com.goats.briller.main.ui.home;
 import android.content.Intent;
 import android.media.Image;
 import android.os.Bundle;
-import android.support.design.widget.TabLayout;
+import android.support.v4.app.FragmentTransaction;
 import android.text.Layout;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -20,6 +20,7 @@ import android.widget.TableRow;
 import android.widget.TextView;
 
 import com.goats.briller.R;
+import com.goats.briller.main.Home;
 import com.goats.briller.main.ui.home.habit.HabitType;
 
 import org.json.JSONException;
@@ -29,6 +30,7 @@ import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.util.Iterator;
 
@@ -36,6 +38,10 @@ public class HomeFragment extends Fragment {
 
     private HomeViewModel homeViewModel;
     private Button addHabit;
+    private TextView habitCount;
+    private ImageView petIcon;
+    private int completedHabitCount = 0;
+    private int totalHabitCount = 0;
 
     LinearLayout habitContainer;
 
@@ -49,7 +55,7 @@ public class HomeFragment extends Fragment {
     }
 
     @Override
-    public void onViewCreated(View view, Bundle savedInstanceState) {
+    public void onViewCreated(final View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
 
@@ -57,7 +63,7 @@ public class HomeFragment extends Fragment {
 
         try {
             File directory = new File(getActivity().getApplicationContext().getFilesDir(), "StampCards");
-            File stampcards = new File(directory, "StampCards.json");
+            final File stampcards = new File(directory, "StampCards.json");
 
             FileReader fileReader = new FileReader(stampcards);
             BufferedReader bufferedReader = new BufferedReader(fileReader);
@@ -71,19 +77,23 @@ public class HomeFragment extends Fragment {
             fileReader.close();
 
             String stampcardsData = stringBuilder.toString();
-            JSONObject stampcardsJSON  = new JSONObject(stampcardsData);
+            final JSONObject stampcardsJSON  = new JSONObject(stampcardsData);
 
             Iterator<String> keys = stampcardsJSON.keys();
 
             while(keys.hasNext()) {
-                String key = keys.next();
+                final String key = keys.next();
                 final JSONObject habit = (JSONObject) stampcardsJSON.get(key);
                 if (habit.get("started").equals(true)) {
+
+                    totalHabitCount++;
+
                     TableRow habitRow = new TableRow(getActivity());
                     habitRow.setBackgroundResource(R.drawable.item_habit);
                     habitRow.setLayoutParams(new TableRow.LayoutParams(TableRow.LayoutParams.WRAP_CONTENT, TableRow.LayoutParams.WRAP_CONTENT));
-                    TextView habitTitle = new TextView(getActivity());
+                    final TextView habitTitle = new TextView(getActivity());
                     ImageButton habitTimer = new ImageButton(getActivity());
+                    ImageButton habitDelete = new ImageButton(getActivity());
 
                     habitTitle.setText(key);
 
@@ -104,8 +114,38 @@ public class HomeFragment extends Fragment {
                         }
                     });
 
+                    habitDelete.setLayoutParams(new TableRow.LayoutParams(TableRow.LayoutParams.WRAP_CONTENT, TableRow.LayoutParams.WRAP_CONTENT));
+                    habitDelete.setImageResource(R.drawable.app_delete_button);
+                    habitDelete.setScaleType(ImageView.ScaleType.FIT_XY);
+                    habitDelete.setAdjustViewBounds(true);
+                    habitDelete.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+
+                            totalHabitCount--;
+
+                            try {
+                                JSONObject stampcardToModify = stampcardsJSON.getJSONObject(key);
+                                stampcardToModify.put("started", false);
+
+                                FileWriter writer = new FileWriter(stampcards);
+
+                                JSONObject newStampcards = stampcardsJSON;
+
+                                writer.append(newStampcards.toString());
+                                writer.flush();
+                                writer.close();
+                            } catch (JSONException | IOException e) {
+                                e.printStackTrace();
+                            }
+                            FragmentTransaction ft = getFragmentManager().beginTransaction();
+                            ft.detach(HomeFragment.this).attach(HomeFragment.this).commit();
+                        }
+                    });
+
                     habitRow.addView(habitTitle);
                     habitRow.addView(habitTimer);
+                    habitRow.addView(habitDelete);
 
                     habitContainer.addView(habitRow, new TableLayout.LayoutParams(TableLayout.LayoutParams.WRAP_CONTENT, TableLayout.LayoutParams.WRAP_CONTENT));
                 }
@@ -125,6 +165,16 @@ public class HomeFragment extends Fragment {
                 startActivity(new Intent(getContext(), HabitType.class));
             }
         });
+
+        habitCount = getView().findViewById(R.id.main_home_habit_count);
+        habitCount.setText(completedHabitCount + " / " + totalHabitCount);
+
+        petIcon = getView().findViewById(R.id.main_home_pet_icon);
+
+        if (completedHabitCount == totalHabitCount) {
+            habitCount.setBackgroundResource(R.drawable.habit_completion_good);
+            petIcon.setImageResource(R.drawable.dog_happy);
+        }
     }
 
     public void stampcardMade() {

@@ -5,7 +5,7 @@
 
     <corners android:radius="90dp" />
 
-    <solid android:color="@color/item_display_background" />
+    <solid android:color="@color/habit_completion_bad" />
 
     <padding
         android:left="10dp"

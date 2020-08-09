@@ -60,52 +60,59 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
+            android:id="@+id/main_home_habit_count"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             app:layout_constraintBottom_toBottomOf="@id/main_home_pet_icon"
             app:layout_constraintLeft_toLeftOf="@id/main_home_pet_icon"
 
-            android:background="@drawable/item_rounded_corners"
-            android:text="0 / 0"></TextView>
+            android:background="@drawable/habit_completion_bad"
+            android:text="0 / 0" />
 
     </android.support.constraint.ConstraintLayout>
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:gravity="center"
-        android:layout_marginTop="50dp"
-        >
+    <ScrollView
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content">
 
         <LinearLayout
-            android:layout_width="fill_parent"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
             android:gravity="center"
-            android:layout_marginHorizontal="10dp"
-            android:layout_marginBottom="10dp">
+            android:layout_marginTop="50dp"
+            >
 
-            <TableLayout
-                android:id="@+id/habit_container"
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:gravity="center"
+                android:layout_marginHorizontal="10dp"
+                android:layout_marginBottom="10dp">
+
+                <TableLayout
+                    android:id="@+id/habit_container"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                </TableLayout>
+
+            </LinearLayout>
+
+            <Button
+                android:id="@+id/add_habit_button"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:orientation="vertical">
+                android:visibility="visible"
 
-            </TableLayout>
+                android:background="@drawable/item_habit"
+                android:text="@string/habit_add"
+                android:textSize="@dimen/textview_big_0_size" />
 
         </LinearLayout>
 
-        <Button
-            android:id="@+id/add_habit_button"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:visibility="visible"
-
-            android:background="@drawable/item_habit"
-            android:text="@string/habit_add"
-            android:textSize="@dimen/textview_big_0_size" />
-
-    </LinearLayout>
+    </ScrollView>
 
 </LinearLayout>
