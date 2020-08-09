@@ -16,6 +16,7 @@ import com.goats.briller.partner.Partner;
 public class Home extends AppCompatActivity {
 
     public Partner partner;
+    boolean habitCompleted;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,6 +27,7 @@ public class Home extends AppCompatActivity {
         mainNavView.setSelectedItemId(R.id.main_navigation_home);
 
         partner = getIntent().getParcelableExtra("partner");
+        habitCompleted = getIntent().getBooleanExtra("habitCompleted", false);
 
         final Fragment currentFragment = getSupportFragmentManager().findFragmentById(R.id.nav_host_fragment);
 
@@ -56,4 +58,7 @@ public class Home extends AppCompatActivity {
 
     public Partner getPartner() { return partner; }
 
+    @Override
+    public void onBackPressed() {
+    }
 }

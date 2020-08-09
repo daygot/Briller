@@ -2,6 +2,7 @@ package com.goats.briller.main.ui.home;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
 import android.support.v4.app.FragmentTransaction;
 import android.view.Gravity;
 import android.view.LayoutInflater;
@@ -149,13 +150,14 @@ public class HomeFragment extends Fragment {
                 final JSONObject habit = (JSONObject) stampcardsJSON.get(key);
                 if (habit.get("started").equals(true)) {
 
+                    //Set up screen according to habit stampcards
                     totalHabitCount++;
 
                     TableRow habitRow = new TableRow(getActivity());
                     habitRow.setBackgroundResource(R.drawable.item_habit);
                     habitRow.setLayoutParams(new TableRow.LayoutParams(TableRow.LayoutParams.WRAP_CONTENT, TableRow.LayoutParams.WRAP_CONTENT));
                     final TextView habitTitle = new TextView(getActivity());
-                    ImageButton habitTimer = new ImageButton(getActivity());
+                    final ImageButton habitTimer = new ImageButton(getActivity());
                     ImageButton habitDelete = new ImageButton(getActivity());
 
                     habitTitle.setText(key);
@@ -177,6 +179,16 @@ public class HomeFragment extends Fragment {
                                 e.printStackTrace();
                             }
                             startActivity(intent);
+                            habitTimer.setEnabled(false);
+                            new Handler().postDelayed(new Runnable()
+                                                      {
+                                                          public void run()
+                                                          {
+                                                              habitTimer.setEnabled(true);
+                                                          }
+                                                      }, 86400000
+                            );
+
                         }
                     });
 
@@ -233,19 +245,15 @@ public class HomeFragment extends Fragment {
             }
         });
 
-        habitCount = getView().findViewById(R.id.main_home_habit_count);
-        habitCount.setText(completedHabitCount + " / " + totalHabitCount);
+//        habitCount = getView().findViewById(R.id.main_home_habit_count);
+//        habitCount.setText(completedHabitCount + " / " + totalHabitCount);
 
         petIcon = getView().findViewById(R.id.main_home_pet_icon);
         petIcon.setImageResource(sadPartnerIcon);
 
         if (completedHabitCount == totalHabitCount) {
-            habitCount.setBackgroundResource(R.drawable.habit_completion_good);
+//            habitCount.setBackgroundResource(R.drawable.habit_completion_good);
             petIcon.setImageResource(happyPartnerIcon);
         }
-    }
-
-    public void stampcardMade() {
-        return;
     }
 }

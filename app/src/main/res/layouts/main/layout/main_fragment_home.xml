@@ -59,15 +59,15 @@
             app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
-        <TextView
-            android:id="@+id/main_home_habit_count"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            app:layout_constraintBottom_toBottomOf="@id/main_home_pet_icon"
-            app:layout_constraintLeft_toLeftOf="@id/main_home_pet_icon"
+<!--        <TextView-->
+<!--            android:id="@+id/main_home_habit_count"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            app:layout_constraintBottom_toBottomOf="@id/main_home_pet_icon"-->
+<!--            app:layout_constraintLeft_toLeftOf="@id/main_home_pet_icon"-->
 
-            android:background="@drawable/habit_completion_bad"
-            android:text="0 / 0" />
+<!--            android:background="@drawable/habit_completion_bad"-->
+<!--            android:text="0 / 0" />-->
 
     </android.support.constraint.ConstraintLayout>
 

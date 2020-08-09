@@ -52,7 +52,7 @@ public class PethouseRewards extends AppCompatActivity {
             String onboardingData = stringBuilder.toString();
             JSONObject onboardingDataJSON  = new JSONObject(onboardingData);
 
-            if (onboardingDataJSON.get("PartnerType").equals("Dog")) {
+            if (onboardingDataJSON.get("PartnerType").equals("dog")) {
                 skins = new int[]{R.drawable.onboarding_dog, R.drawable.onboarding_dog_skinned};
             } else {
                 skins = new int[]{R.drawable.onboarding_cat, R.drawable.onboarding_cat_skinned};

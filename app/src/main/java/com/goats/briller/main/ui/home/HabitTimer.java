@@ -29,7 +29,7 @@ import java.sql.Timestamp;
 
 public class HabitTimer extends AppCompatActivity {
     private TextView countdownText;
-    private Button go_back_home;
+    private Button goBackHome;
 
 
     CountDownTimer countDownTimer;
@@ -97,16 +97,14 @@ public class HabitTimer extends AppCompatActivity {
             countdownText.setTextSize(TypedValue.COMPLEX_UNIT_PX, getResources().getDimension(R.dimen.textview_big_0_size));
             countdownText.setText("Great Work!");
 
+            goBackHome = findViewById(R.id.timer_to_back_home);
+            goBackHome.setVisibility(View.VISIBLE);
 
-            go_back_home = findViewById(R.id.timer_to_back_home);
-            go_back_home.setVisibility(View.VISIBLE);
-
-            go_back_home.setOnClickListener(new View.OnClickListener() {
+            goBackHome.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    Intent intent = new Intent(getApplicationContext(), Home.class);
-
-                    startActivity(intent);
+                    onBackPressed();
+                    finish();
                 }
             });
         }
@@ -174,7 +172,12 @@ public class HabitTimer extends AppCompatActivity {
 
             timeToCheck = (long) stampcardToCheck.get("habitStartTime");
             int timeDifferenceInHours = (int) ((currentTime - timeToCheck) / 1000 / 60 / 60);
-            String dayToUpdate = String.valueOf(timeDifferenceInHours);
+            String dayToUpdate = String.valueOf(timeDifferenceInHours / 24);
+
+            if (Integer.parseInt(dayToUpdate) >= 6) {
+                Toast.makeText(getApplicationContext(), "You finished your habit stampcard!", Toast.LENGTH_SHORT).show();
+                stampcardToCheck.put("started", false);
+            }
 
             stampcardToCheck.put(dayToUpdate, completed);
 

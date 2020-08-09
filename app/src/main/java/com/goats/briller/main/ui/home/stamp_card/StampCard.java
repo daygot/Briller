@@ -83,6 +83,12 @@ public class StampCard extends AppCompatActivity {
                     JSONObject stampcardsJSON  = new JSONObject(stampcardsData);
 
                     JSONObject stampcardToModify = stampcardsJSON.getJSONObject(habitTitle.getText().toString());
+
+                    if (stampcardToModify.get("started").equals(true)) {
+                        Toast.makeText(getApplicationContext(), "You already have this stampcard!", Toast.LENGTH_SHORT).show();
+                        return;
+                    }
+
                     stampcardToModify.put("alarm", alarmToggle.isChecked());
                     stampcardToModify.put("started", true);
                     stampcardToModify.put("timer", Integer.parseInt(timeInput.getText().toString()));
