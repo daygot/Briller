@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.support.v7.app.AppCompatActivity;
 
+import android.util.TypedValue;
 import android.widget.TextView;
 
 import com.goats.briller.R;
@@ -32,8 +33,6 @@ public class HabitTimer extends AppCompatActivity {
 
     protected void onCreate(Bundle savedInstanceState) {
 
-        System.out.println("onCreate");
-
         super.onCreate(savedInstanceState);
         setContentView(R.layout.habit_timer);
 
@@ -56,12 +55,11 @@ public class HabitTimer extends AppCompatActivity {
 
             @Override
             public void onFinish() {
-
+                updateStampcard(1);
             }
         }.start();
 
     timerRunning = true;
-
     }
 
     public void stop() {
@@ -71,7 +69,7 @@ public class HabitTimer extends AppCompatActivity {
     }
 
     public void updateTimer(){
-        int minutes = (int) timeLeftinMilliseconds/60000;
+        int minutes = (int) timeLeftinMilliseconds / 60000;
         int seconds = (int) timeLeftinMilliseconds % 60000 / 1000;
 
         String timeLeftText;
@@ -95,8 +93,6 @@ public class HabitTimer extends AppCompatActivity {
         timerRunning = false;
         stop();
 
-
-
     }
 
     public void onResume() {
@@ -107,61 +103,11 @@ public class HabitTimer extends AppCompatActivity {
         if (!timerRunning) {
 
             countdownText = findViewById(R.id.countdown_text);
-
-            countdownText.setTextSize(50);
-
+            countdownText.setTextSize(TypedValue.COMPLEX_UNIT_PX, getResources().getDimension(R.dimen.textview_big_0_size));
             countdownText.setText("You Failed!");
 
-            long currentTime = System.currentTimeMillis();
-
-            File directory = new File(getApplicationContext().getFilesDir(), "StampCards");
-            File stampcards = new File(directory, "StampCards.json");
-
-            long timeToCheck = 0;
-
-            try {
-                FileReader fileReader = new FileReader(stampcards);
-                BufferedReader bufferedReader = new BufferedReader(fileReader);
-                StringBuilder stringBuilder = new StringBuilder();
-                String line = bufferedReader.readLine();
-                while (line != null) {
-                    stringBuilder.append(line).append("\n");
-                    line = bufferedReader.readLine();
-                }
-                bufferedReader.close();
-                fileReader.close();
-
-                String stampcardsData = stringBuilder.toString();
-
-                JSONObject stampcardsJSON = new JSONObject(stampcardsData);
-
-                JSONObject stampcardToCheck = stampcardsJSON.getJSONObject(habitTitle);
-                timeToCheck = (long) stampcardToCheck.get("habitStartTime");
-
-                int timeDifferenceInHours = (int) ((currentTime - timeToCheck) / 1000 / 60 / 60);
-
-                String dayToUpdate = String.valueOf(timeDifferenceInHours);
-
-                stampcardToCheck.put(dayToUpdate, -1);
-
-                FileWriter writer = new FileWriter(stampcards);
-
-                JSONObject newStampcards = stampcardsJSON;
-
-                writer.append(newStampcards.toString());
-                writer.flush();
-                writer.close();
-
-            } catch (FileNotFoundException e) {
-                e.printStackTrace();
-            } catch (IOException e) {
-                e.printStackTrace();
-            } catch (JSONException e) {
-                e.printStackTrace();
-            }
+            updateStampcard(-1);
         }
-
-
     }
 
 
@@ -169,8 +115,55 @@ public class HabitTimer extends AppCompatActivity {
 
         super.onRestart();
 
+    }
 
+    public void updateStampcard(int completed) {
 
+        File directory = new File(getApplicationContext().getFilesDir(), "StampCards");
+        File stampcards = new File(directory, "StampCards.json");
+
+        long currentTime = System.currentTimeMillis();
+        long timeToCheck;
+
+        try {
+            FileReader fileReader = new FileReader(stampcards);
+            BufferedReader bufferedReader = new BufferedReader(fileReader);
+            StringBuilder stringBuilder = new StringBuilder();
+            String line = bufferedReader.readLine();
+            while (line != null) {
+                stringBuilder.append(line).append("\n");
+                line = bufferedReader.readLine();
+            }
+            bufferedReader.close();
+            fileReader.close();
+
+            String stampcardsData = stringBuilder.toString();
+
+            JSONObject stampcardsJSON = new JSONObject(stampcardsData);
+
+            JSONObject stampcardToCheck = stampcardsJSON.getJSONObject(habitTitle);
+
+            timeToCheck = (long) stampcardToCheck.get("habitStartTime");
+            int timeDifferenceInHours = (int) ((currentTime - timeToCheck) / 1000 / 60 / 60);
+            String dayToUpdate = String.valueOf(timeDifferenceInHours);
+
+            stampcardToCheck.put(dayToUpdate, completed);
+
+            FileWriter writer = new FileWriter(stampcards);
+
+            JSONObject newStampcards = stampcardsJSON;
+
+            writer.append(newStampcards.toString());
+            writer.flush();
+            writer.close();
+
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
     }
 
 }
