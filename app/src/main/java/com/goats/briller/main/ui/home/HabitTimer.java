@@ -1,13 +1,19 @@
 package com.goats.briller.main.ui.home;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.support.v7.app.AppCompatActivity;
 
 import android.util.TypedValue;
+import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.goats.briller.R;
+import com.goats.briller.main.Home;
+import com.goats.briller.onboarding.OnboardingSelectPartnerScreen;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -23,6 +29,8 @@ import java.sql.Timestamp;
 
 public class HabitTimer extends AppCompatActivity {
     private TextView countdownText;
+    private Button go_back_home;
+
 
     CountDownTimer countDownTimer;
 
@@ -30,6 +38,7 @@ public class HabitTimer extends AppCompatActivity {
     boolean timerRunning;
 
     String habitTitle;
+
 
     protected void onCreate(Bundle savedInstanceState) {
 
@@ -81,6 +90,27 @@ public class HabitTimer extends AppCompatActivity {
         timeLeftText += seconds;
 
         countdownText.setText(timeLeftText);
+
+        if (timeLeftText.equals("0:00")) {
+
+            countdownText = findViewById(R.id.countdown_text);
+            countdownText.setTextSize(TypedValue.COMPLEX_UNIT_PX, getResources().getDimension(R.dimen.textview_big_0_size));
+            countdownText.setText("Great Work!");
+
+
+            go_back_home = findViewById(R.id.timer_to_back_home);
+            go_back_home.setVisibility(View.VISIBLE);
+
+            go_back_home.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Intent intent = new Intent(getApplicationContext(), Home.class);
+
+                    startActivity(intent);
+                }
+            });
+        }
+
     }
 
 
