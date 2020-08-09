@@ -15,7 +15,8 @@ public class StampCardObject extends JSONObject {
     private int timer = 0;
     private JSONObject stampcardData = new JSONObject();
     private Timestamp habitStartTime = new Timestamp(System.currentTimeMillis());
-    private Boolean started, alarm = false;
+    private Boolean started = false;
+    private Boolean alarm = false;
 
     public StampCardObject(String habit) throws JSONException {
 
