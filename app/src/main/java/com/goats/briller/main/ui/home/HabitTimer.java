@@ -119,13 +119,12 @@ public class HabitTimer extends AppCompatActivity {
 
     public void updateStampcard(int completed) {
 
-        File directory = new File(getApplicationContext().getFilesDir(), "StampCards");
-        File stampcards = new File(directory, "StampCards.json");
-
         long currentTime = System.currentTimeMillis();
         long timeToCheck;
 
         try {
+            File directory = new File(getApplicationContext().getFilesDir(), "StampCards");
+            File stampcards = new File(directory, "StampCards.json");
             FileReader fileReader = new FileReader(stampcards);
             BufferedReader bufferedReader = new BufferedReader(fileReader);
             StringBuilder stringBuilder = new StringBuilder();

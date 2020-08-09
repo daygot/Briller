@@ -1,21 +1,26 @@
 package com.goats.briller.main.ui.stats;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageButton;
-import android.widget.TextView;
 import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
-import android.arch.lifecycle.Observer;
 import android.arch.lifecycle.ViewModelProviders;
+import android.widget.TextView;
 
 import com.goats.briller.R;
 
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.io.BufferedReader;
 import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
+import java.util.Iterator;
 
 public class StatsFragment extends Fragment implements View.OnClickListener {
 
@@ -51,33 +56,60 @@ public class StatsFragment extends Fragment implements View.OnClickListener {
         read.setOnClickListener(this);
         journal.setOnClickListener(this);
         study.setOnClickListener(this);
-
-//        progressBarTitle = getView().findViewById(R.id.stats_progress_bar_title);
-//        completionPercentage1 = getView().findViewById(R.id.stats_progress_bar_completion_percentage);
-//        completionPercentage2 = getView().findViewById(R.id.stats_progress_bar_completion_percentage_2);
-
-
     }
 
     @Override
     public void onClick(View v) {
-        switch (v.getId()) {
-            case R.id.stats_gym_button:
-                break;
-            case R.id.stats_run_button:
-                break;
-            case R.id.stats_pushup_button:
-                break;
-            case R.id.stats_squat_button:
-                break;
-            case R.id.stats_meditate_button:
-                break;
-            case R.id.stats_read_button:
-                break;
-            case R.id.stats_journal_button:
-                break;
-            case R.id.stats_study_button:
-                break;
+        displayStampcard(v.getTag().toString());
+    }
+
+    public void displayStampcard(String habit) {
+        try {
+            File directory = new File(getActivity().getApplicationContext().getFilesDir(), "StampCards");
+            File stampcards = new File(directory, "StampCards.json");
+
+            FileReader fileReader = new FileReader(stampcards);
+            BufferedReader bufferedReader = new BufferedReader(fileReader);
+            StringBuilder stringBuilder = new StringBuilder();
+            String line = bufferedReader.readLine();
+            while (line != null) {
+                stringBuilder.append(line).append("\n");
+                line = bufferedReader.readLine();
+            }
+            bufferedReader.close();
+            fileReader.close();
+
+            String stampcardsData = stringBuilder.toString();
+
+            JSONObject stampcardsJSON = new JSONObject(stampcardsData);
+
+            JSONObject stampcardToCheck = stampcardsJSON.getJSONObject(habit);
+
+            Iterator<String> keys = stampcardToCheck.keys();
+
+            while(keys.hasNext()) {
+                String key = keys.next();
+                int id = getResources().getIdentifier("stampcard_day" + key, "id", getActivity().getApplicationContext().getPackageName());
+                if (android.text.TextUtils.isDigitsOnly(key)) {
+                    TextView textView = getView().findViewById(id);
+
+                    switch ((int) stampcardToCheck.get(key)) {
+                        case 1:
+                            textView.setBackgroundColor(getResources().getColor(R.color.habit_completion_good));
+                        case -1:
+                            textView.setBackgroundColor(getResources().getColor(R.color.habit_completion_bad));
+                        case 0:
+                            textView.setBackgroundColor(getResources().getColor(android.R.color.white));
+                    }
+                }
+            }
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        } catch (JSONException e) {
+            e.printStackTrace();
         }
     }
+
 }
