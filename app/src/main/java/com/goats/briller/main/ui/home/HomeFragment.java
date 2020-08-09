@@ -74,9 +74,10 @@ public class HomeFragment extends Fragment {
 
             while(keys.hasNext()) {
                 String key = keys.next();
-                if (stampcardsJSON.get(key) instanceof JSONObject) {
-                    TableRow habit = new TableRow(getActivity());
-                    habit.setBackgroundResource(R.drawable.item_habit);
+                JSONObject habit = (JSONObject) stampcardsJSON.get(key);
+                if (habit.get("started") == true) {
+                    TableRow habitRow = new TableRow(getActivity());
+                    habitRow.setBackgroundResource(R.drawable.item_habit);
                     TextView habitTitle = new TextView(getActivity());
                     ImageButton habitTimer = new ImageButton(getActivity());
 
@@ -85,10 +86,10 @@ public class HomeFragment extends Fragment {
                     habitTimer.setLayoutParams(new LinearLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.WRAP_CONTENT));
                     habitTimer.setImageResource(R.drawable.stampcard_alarm);
 
-                    habit.addView(habitTitle);
-                    habit.addView(habitTimer);
+                    habitRow.addView(habitTitle);
+                    habitRow.addView(habitTimer);
 
-                    habitContainer.addView(habit);
+                    habitContainer.addView(habitRow);
                 }
             }
         } catch (FileNotFoundException e) {
