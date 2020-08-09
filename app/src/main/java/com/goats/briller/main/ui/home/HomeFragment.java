@@ -57,7 +57,7 @@ public class HomeFragment extends Fragment {
         View root = inflater.inflate(R.layout.main_fragment_home, container, false);
 
         Home home = (Home) getActivity();
-        
+
         try {
             partner = home.getPartner();
 
