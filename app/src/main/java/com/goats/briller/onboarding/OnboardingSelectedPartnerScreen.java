@@ -68,21 +68,21 @@ public class OnboardingSelectedPartnerScreen extends AppCompatActivity {
 
 
         try {
-            StampCardObject gym_stampCard = new StampCardObject("Gym");
+            StampCardObject gym_stampCard = new StampCardObject(getResources().getString(R.string.habit_physique_gym));
 
-            StampCardObject run_stampCard = new StampCardObject("Run");
+            StampCardObject run_stampCard = new StampCardObject(getResources().getString(R.string.habit_physique_run));
 
-            StampCardObject pushUps_stampCard = new StampCardObject("Push Ups");
+            StampCardObject pushUps_stampCard = new StampCardObject(getResources().getString(R.string.habit_physique_pushup));
 
-            StampCardObject squats_stampCard = new StampCardObject("Squats");
+            StampCardObject squats_stampCard = new StampCardObject(getResources().getString(R.string.habit_physique_squat));
 
-            StampCardObject meditation_stampCard = new StampCardObject("Meditation");
+            StampCardObject meditation_stampCard = new StampCardObject(getResources().getString(R.string.habit_mind_meditate));
 
-            StampCardObject Reading_stampCard = new StampCardObject("Reading");
+            StampCardObject Reading_stampCard = new StampCardObject(getResources().getString(R.string.habit_mind_read));
 
-            StampCardObject Journal_stampCard = new StampCardObject("Journal");
+            StampCardObject Journal_stampCard = new StampCardObject(getResources().getString(R.string.habit_mind_journal));
 
-            StampCardObject Study_stampCard = new StampCardObject("Study");
+            StampCardObject Study_stampCard = new StampCardObject(getResources().getString(R.string.habit_mind_study));
 
             all_stampCards.add(gym_stampCard);
             all_stampCards.add(run_stampCard);

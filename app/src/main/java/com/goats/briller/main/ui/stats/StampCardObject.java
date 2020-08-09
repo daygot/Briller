@@ -11,11 +11,11 @@ import java.util.HashMap;
 
 public class StampCardObject extends JSONObject {
 
-    String habit;
-    int timer;
-    JSONObject stampcardData = new JSONObject();
-    Timestamp habitStartTime = new Timestamp(System.currentTimeMillis());
-    Boolean alarm = false;
+    private String habit;
+    private int timer = 0;
+    private JSONObject stampcardData = new JSONObject();
+    private Timestamp habitStartTime = new Timestamp(System.currentTimeMillis());
+    private Boolean started, alarm = false;
 
     public StampCardObject(String habit) throws JSONException {
 
@@ -29,6 +29,7 @@ public class StampCardObject extends JSONObject {
         stampcardData.put("d6", 0);
         stampcardData.put("d7", 0);
         stampcardData.put("timer", timer);
+        stampcardData.put("started", started);
         stampcardData.put("alarm", alarm);
         stampcardData.put("habitStartTime", habitStartTime);
 
