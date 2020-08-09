@@ -33,8 +33,7 @@
             android:layout_height="wrap_content"
 
             android:text="@string/habit_physique"
-            android:textSize="@dimen/textview_big_1_size"
-            />
+            android:textSize="@dimen/textview_big_1_size" />
 
         <ImageView
             android:layout_width="wrap_content"
@@ -42,7 +41,7 @@
             android:maxHeight="40dp"
             android:maxWidth="40dp"
             android:adjustViewBounds="true"
-            android:scaleType="fitCenter"
+            android:scaleType="fitXY"
             android:src="@drawable/habit_physique_icon" />
 
     </LinearLayout>
@@ -73,7 +72,6 @@
 
                     android:src="@drawable/habit_physique_gym"
                     android:tag="@string/habit_physique_gym"
-                    android:background="@null"
                     android:scaleType="fitXY"
                     android:adjustViewBounds="true"
                     />
@@ -100,16 +98,15 @@
 
                     android:src="@drawable/habit_physique_run"
                     android:tag="@string/habit_physique_run"
-                    android:background="@null"
                     android:scaleType="fitXY"
-                    android:adjustViewBounds="true"/>
+                    android:adjustViewBounds="true" />
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:gravity="center"
                     android:text="@string/habit_physique_run"
                     android:fontFamily="@font/montserrat_bold"
-                    android:textSize="@dimen/textview_middle_size"/>
+                    android:textSize="@dimen/textview_middle_size" />
             </LinearLayout>
 
         </TableRow>
@@ -131,16 +128,15 @@
 
                     android:src="@drawable/habit_physique_pushup"
                     android:tag="@string/habit_physique_pushup"
-                    android:background="@null"
                     android:scaleType="fitXY"
-                    android:adjustViewBounds="true"/>
+                    android:adjustViewBounds="true" />
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:gravity="center"
                     android:text="@string/habit_physique_pushup"
                     android:fontFamily="@font/montserrat_bold"
-                    android:textSize="@dimen/textview_middle_size"/>
+                    android:textSize="@dimen/textview_middle_size" />
             </LinearLayout>
 
             <LinearLayout
@@ -157,16 +153,15 @@
 
                     android:src="@drawable/habit_physique_squat"
                     android:tag="@string/habit_physique_squat"
-                    android:background="@null"
                     android:scaleType="fitXY"
-                    android:adjustViewBounds="true"/>
+                    android:adjustViewBounds="true" />
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:gravity="center"
                     android:text="@string/habit_physique_squat"
                     android:fontFamily="@font/montserrat_bold"
-                    android:textSize="@dimen/textview_middle_size"/>
+                    android:textSize="@dimen/textview_middle_size" />
             </LinearLayout>
 
         </TableRow>

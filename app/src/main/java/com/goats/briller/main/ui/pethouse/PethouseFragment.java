@@ -6,17 +6,16 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
-import android.arch.lifecycle.Observer;
-import android.arch.lifecycle.ViewModelProviders;
 import android.widget.ImageButton;
+import android.widget.ImageView;
 
 import com.goats.briller.R;
 
 public class PethouseFragment extends Fragment implements View.OnClickListener {
 
     ImageButton rewards, store;
+    ImageView pet;
     Intent intent;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
@@ -31,6 +30,7 @@ public class PethouseFragment extends Fragment implements View.OnClickListener {
 
         rewards = getView().findViewById(R.id.pethouse_rewards);
         store = getView().findViewById(R.id.pethouse_store);
+        pet = getView().findViewById(R.id.pethouse_pet);
 
         rewards.setOnClickListener(this);
         store.setOnClickListener(this);

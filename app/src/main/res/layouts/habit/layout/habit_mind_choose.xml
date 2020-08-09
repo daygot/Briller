@@ -49,6 +49,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_margin="30dp"
+
         >
 
         <TableRow
@@ -70,7 +71,6 @@
 
                     android:src="@drawable/habit_mind_meditate"
                     android:tag="@string/habit_mind_meditate"
-                    android:background="@null"
                     android:scaleType="fitXY"
                     android:adjustViewBounds="true"
                     />
@@ -97,7 +97,6 @@
 
                     android:src="@drawable/habit_mind_read"
                     android:tag="@string/habit_mind_read"
-                    android:background="@null"
                     android:scaleType="fitXY"
                     android:adjustViewBounds="true"/>
                 <TextView
@@ -128,7 +127,6 @@
 
                     android:src="@drawable/habit_mind_journal"
                     android:tag="@string/habit_mind_journal"
-                    android:background="@null"
                     android:scaleType="fitXY"
                     android:adjustViewBounds="true"/>
                 <TextView
@@ -154,7 +152,6 @@
 
                     android:src="@drawable/habit_mind_study"
                     android:tag="@string/habit_mind_study"
-                    android:background="@null"
                     android:scaleType="fitXY"
                     android:adjustViewBounds="true"/>
                 <TextView

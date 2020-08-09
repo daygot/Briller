@@ -7,7 +7,6 @@ import android.view.ViewGroup;
 import android.widget.ImageButton;
 import android.support.annotation.NonNull;
 import android.support.v4.app.Fragment;
-import android.arch.lifecycle.ViewModelProviders;
 import android.widget.TextView;
 
 import com.goats.briller.R;
@@ -24,12 +23,10 @@ import java.util.Iterator;
 
 public class StatsFragment extends Fragment implements View.OnClickListener {
 
-    private StatsViewModel statsViewModel;
     ImageButton gym, run, pushup, squat, meditate, read, journal, study;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
-        statsViewModel = ViewModelProviders.of(this).get(StatsViewModel.class);
         View root = inflater.inflate(R.layout.main_fragment_stats, container, false);
         return root;
 
@@ -92,14 +89,16 @@ public class StatsFragment extends Fragment implements View.OnClickListener {
                 int id = getResources().getIdentifier("stampcard_day" + key, "id", getActivity().getApplicationContext().getPackageName());
                 if (android.text.TextUtils.isDigitsOnly(key)) {
                     TextView textView = getView().findViewById(id);
-
-                    switch ((int) stampcardToCheck.get(key)) {
-                        case 1:
+                    switch (String.valueOf(stampcardToCheck.get(key))) {
+                        case "1":
                             textView.setBackgroundResource(R.drawable.item_completed);
-                        case -1:
+                            break;
+                        case "-1":
                             textView.setBackgroundResource(R.drawable.item_failed);
-                        case 0:
+                            break;
+                        case "0":
                             textView.setBackgroundResource(R.drawable.item_stats);
+                            break;
                     }
                 }
             }

@@ -12,9 +12,8 @@
         android:layout_height="wrap_content"
         android:layout_marginBottom="40dp"
         android:orientation="vertical"
-        app:layout_constraintRight_toRightOf="@id/pethouse_island"
         app:layout_constraintBottom_toTopOf="@id/pethouse_island"
-        >
+        app:layout_constraintRight_toRightOf="@id/pethouse_island">
 
         <ImageButton
             android:id="@+id/pethouse_rewards"
@@ -22,9 +21,9 @@
             android:layout_height="wrap_content"
             android:layout_marginBottom="10dp"
             android:adjustViewBounds="true"
-            android:scaleType="fitXY"
-            android:maxHeight="80dp"
             android:maxWidth="80dp"
+            android:maxHeight="80dp"
+            android:scaleType="fitXY"
             android:src="@drawable/pethouse_rewards" />
 
         <ImageButton
@@ -32,27 +31,34 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:adjustViewBounds="true"
-            android:scaleType="fitXY"
-            android:maxHeight="80dp"
             android:maxWidth="80dp"
+            android:maxHeight="80dp"
+            android:scaleType="fitXY"
             android:src="@drawable/pethouse_store" />
 
     </LinearLayout>
 
     <android.support.constraint.Guideline
         android:id="@+id/pethouse_guideline"
-        android:orientation="horizontal"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:orientation="horizontal"
         app:layout_constraintGuide_percent="0.75" />
 
     <ImageView
         android:id="@+id/pethouse_island"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
+        android:src="@drawable/island_beach"
         app:layout_constraintBottom_toTopOf="@id/pethouse_guideline"
-        app:layout_constraintLeft_toLeftOf="parent"
-        android:src="@drawable/briller_logo"
-        />
+        app:layout_constraintLeft_toLeftOf="parent" />
+
+    <ImageView
+        android:id="@+id/pethouse_pet"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:src="@drawable/onboarding_dog_skinned"
+        app:layout_constraintBottom_toTopOf="@id/pethouse_guideline"
+        app:layout_constraintLeft_toLeftOf="parent" />
 
 </android.support.constraint.ConstraintLayout>

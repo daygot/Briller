@@ -37,7 +37,6 @@
                 android:layout_height="wrap_content"
                 android:src="@drawable/habit_physique_gym"
                 android:tag="@string/habit_physique_gym"
-                android:background="@null"
                 android:scaleType="fitXY"
                 android:adjustViewBounds="true"
                 />
@@ -65,7 +64,6 @@
                 android:layout_height="wrap_content"
                 android:src="@drawable/habit_physique_run"
                 android:tag="@string/habit_physique_run"
-                android:background="@null"
                 android:scaleType="fitXY"
                 android:adjustViewBounds="true"
                 />
@@ -93,7 +91,6 @@
                 android:layout_height="wrap_content"
                 android:src="@drawable/habit_physique_pushup"
                 android:tag="@string/habit_physique_pushup"
-                android:background="@null"
                 android:scaleType="fitXY"
                 android:adjustViewBounds="true"
                 />
@@ -120,7 +117,6 @@
                 android:layout_height="wrap_content"
                 android:src="@drawable/habit_physique_squat"
                 android:tag="@string/habit_physique_squat"
-                android:background="@null"
                 android:scaleType="fitXY"
                 android:adjustViewBounds="true"
                 />
@@ -155,7 +151,6 @@
                 android:layout_height="wrap_content"
                 android:src="@drawable/habit_mind_meditate"
                 android:tag="@string/habit_mind_meditate"
-                android:background="@null"
                 android:scaleType="fitXY"
                 android:adjustViewBounds="true"
                 />
@@ -183,7 +178,6 @@
                 android:layout_height="wrap_content"
                 android:src="@drawable/habit_mind_read"
                 android:tag="@string/habit_mind_read"
-                android:background="@null"
                 android:scaleType="fitXY"
                 android:adjustViewBounds="true"
                 />
@@ -211,7 +205,6 @@
                 android:layout_height="wrap_content"
                 android:src="@drawable/habit_mind_journal"
                 android:tag="@string/habit_mind_journal"
-                android:background="@null"
                 android:scaleType="fitXY"
                 android:adjustViewBounds="true"
                 />
@@ -238,7 +231,6 @@
                 android:layout_height="wrap_content"
                 android:src="@drawable/habit_mind_study"
                 android:tag="@string/habit_mind_study"
-                android:background="@null"
                 android:scaleType="fitXY"
                 android:adjustViewBounds="true"
                 />

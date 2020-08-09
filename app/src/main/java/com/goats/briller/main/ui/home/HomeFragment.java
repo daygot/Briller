@@ -1,17 +1,15 @@
 package com.goats.briller.main.ui.home;
 
 import android.content.Intent;
-import android.media.Image;
 import android.os.Bundle;
 import android.support.v4.app.FragmentTransaction;
-import android.text.Layout;
+import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.support.annotation.NonNull;
 import android.support.v4.app.Fragment;
-import android.arch.lifecycle.ViewModelProviders;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
@@ -37,7 +35,6 @@ import java.util.Iterator;
 
 public class HomeFragment extends Fragment {
 
-    private HomeViewModel homeViewModel;
     private Button addHabit;
     private TextView habitCount;
     private ImageView petIcon;
@@ -53,7 +50,6 @@ public class HomeFragment extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
 
-        homeViewModel = ViewModelProviders.of(this).get(HomeViewModel.class);
         View root = inflater.inflate(R.layout.main_fragment_home, container, false);
 
         Home home = (Home) getActivity();
@@ -216,6 +212,7 @@ public class HomeFragment extends Fragment {
                     habitRow.addView(habitTitle);
                     habitRow.addView(habitTimer);
                     habitRow.addView(habitDelete);
+                    habitRow.setGravity(Gravity.CENTER);
 
                     habitContainer.addView(habitRow, new TableLayout.LayoutParams(TableLayout.LayoutParams.WRAP_CONTENT, TableLayout.LayoutParams.WRAP_CONTENT));
                 }
