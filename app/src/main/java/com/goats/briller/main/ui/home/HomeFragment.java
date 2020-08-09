@@ -3,6 +3,7 @@ package com.goats.briller.main.ui.home;
 import android.content.Intent;
 import android.media.Image;
 import android.os.Bundle;
+import android.support.design.widget.TabLayout;
 import android.text.Layout;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -12,7 +13,9 @@ import android.support.annotation.NonNull;
 import android.support.v4.app.Fragment;
 import android.arch.lifecycle.ViewModelProviders;
 import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.TableLayout;
 import android.widget.TableRow;
 import android.widget.TextView;
 
@@ -75,21 +78,31 @@ public class HomeFragment extends Fragment {
             while(keys.hasNext()) {
                 String key = keys.next();
                 JSONObject habit = (JSONObject) stampcardsJSON.get(key);
-                if (habit.get("started") == true) {
+                if (habit.get("started").equals(true)) {
                     TableRow habitRow = new TableRow(getActivity());
                     habitRow.setBackgroundResource(R.drawable.item_habit);
+                    habitRow.setLayoutParams(new TableRow.LayoutParams(TableRow.LayoutParams.WRAP_CONTENT, TableRow.LayoutParams.WRAP_CONTENT));
                     TextView habitTitle = new TextView(getActivity());
                     ImageButton habitTimer = new ImageButton(getActivity());
 
                     habitTitle.setText(key);
 
-                    habitTimer.setLayoutParams(new LinearLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.WRAP_CONTENT));
+                    habitTimer.setLayoutParams(new TableRow.LayoutParams(TableRow.LayoutParams.WRAP_CONTENT, TableRow.LayoutParams.WRAP_CONTENT));
                     habitTimer.setImageResource(R.drawable.stampcard_alarm);
+                    habitTimer.setScaleType(ImageView.ScaleType.FIT_XY);
+                    habitTimer.setAdjustViewBounds(true);
+                    habitTimer.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+                            Intent intent = new Intent(getActivity().getApplicationContext(), HabitTimer.class);
+                            startActivity(intent);
+                        }
+                    });
 
                     habitRow.addView(habitTitle);
                     habitRow.addView(habitTimer);
 
-                    habitContainer.addView(habitRow);
+                    habitContainer.addView(habitRow, new TableLayout.LayoutParams(TableLayout.LayoutParams.WRAP_CONTENT, TableLayout.LayoutParams.WRAP_CONTENT));
                 }
             }
         } catch (FileNotFoundException e) {
