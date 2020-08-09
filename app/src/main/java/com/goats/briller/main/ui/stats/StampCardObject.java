@@ -22,13 +22,13 @@ public class StampCardObject extends JSONObject {
 
         this.habit = habit;
 
-        stampcardData.put("d1", 0);
-        stampcardData.put("d2", 0);
-        stampcardData.put("d3", 0);
-        stampcardData.put("d4", 0);
-        stampcardData.put("d5", 0);
-        stampcardData.put("d6", 0);
-        stampcardData.put("d7", 0);
+        stampcardData.put("0", 0);
+        stampcardData.put("1", 0);
+        stampcardData.put("2", 0);
+        stampcardData.put("3", 0);
+        stampcardData.put("4", 0);
+        stampcardData.put("5", 0);
+        stampcardData.put("6", 0);
         stampcardData.put("timer", timer);
         stampcardData.put("started", started);
         stampcardData.put("alarm", alarm);

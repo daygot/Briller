@@ -8,6 +8,17 @@ import android.widget.TextView;
 
 import com.goats.briller.R;
 
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.sql.Timestamp;
+
 
 public class HabitTimer extends AppCompatActivity {
     private TextView countdownText;
@@ -16,6 +27,8 @@ public class HabitTimer extends AppCompatActivity {
 
     long timeLeftinMilliseconds;
     boolean timerRunning;
+
+    String habitTitle;
 
     protected void onCreate(Bundle savedInstanceState) {
 
@@ -26,6 +39,8 @@ public class HabitTimer extends AppCompatActivity {
 
         timeLeftinMilliseconds = getIntent().getIntExtra("timer", 0) * 60000;
         countdownText = findViewById(R.id.countdown_text);
+
+        habitTitle = getIntent().getStringExtra("habitTitle");
 
         start();
 
@@ -97,7 +112,53 @@ public class HabitTimer extends AppCompatActivity {
 
             countdownText.setText("You Failed!");
 
+            long currentTime = System.currentTimeMillis();
 
+            File directory = new File(getApplicationContext().getFilesDir(), "StampCards");
+            File stampcards = new File(directory, "StampCards.json");
+
+            long timeToCheck = 0;
+
+            try {
+                FileReader fileReader = new FileReader(stampcards);
+                BufferedReader bufferedReader = new BufferedReader(fileReader);
+                StringBuilder stringBuilder = new StringBuilder();
+                String line = bufferedReader.readLine();
+                while (line != null) {
+                    stringBuilder.append(line).append("\n");
+                    line = bufferedReader.readLine();
+                }
+                bufferedReader.close();
+                fileReader.close();
+
+                String stampcardsData = stringBuilder.toString();
+
+                JSONObject stampcardsJSON = new JSONObject(stampcardsData);
+
+                JSONObject stampcardToCheck = stampcardsJSON.getJSONObject(habitTitle);
+                timeToCheck = (long) stampcardToCheck.get("habitStartTime");
+
+                int timeDifferenceInHours = (int) ((currentTime - timeToCheck) / 1000 / 60 / 60);
+
+                String dayToUpdate = String.valueOf(timeDifferenceInHours);
+
+                stampcardToCheck.put(dayToUpdate, -1);
+
+                FileWriter writer = new FileWriter(stampcards);
+
+                JSONObject newStampcards = stampcardsJSON;
+
+                writer.append(newStampcards.toString());
+                writer.flush();
+                writer.close();
+
+            } catch (FileNotFoundException e) {
+                e.printStackTrace();
+            } catch (IOException e) {
+                e.printStackTrace();
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
         }
 
 

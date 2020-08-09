@@ -172,6 +172,9 @@ public class HomeFragment extends Fragment {
                         @Override
                         public void onClick(View v) {
                             Intent intent = new Intent(getActivity().getApplicationContext(), HabitTimer.class);
+
+                            intent.putExtra("habitTitle", key);
+
                             try {
                                 intent.putExtra("timer", Integer.parseInt(habit.get("timer").toString()));
                             } catch (JSONException e) {
