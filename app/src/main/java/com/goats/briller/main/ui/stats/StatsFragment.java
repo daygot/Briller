@@ -95,11 +95,11 @@ public class StatsFragment extends Fragment implements View.OnClickListener {
 
                     switch ((int) stampcardToCheck.get(key)) {
                         case 1:
-                            textView.setBackgroundColor(getResources().getColor(R.color.habit_completion_good));
+                            textView.setBackgroundResource(R.drawable.item_completed);
                         case -1:
-                            textView.setBackgroundColor(getResources().getColor(R.color.habit_completion_bad));
+                            textView.setBackgroundResource(R.drawable.item_failed);
                         case 0:
-                            textView.setBackgroundColor(getResources().getColor(android.R.color.white));
+                            textView.setBackgroundResource(R.drawable.item_stats);
                     }
                 }
             }
