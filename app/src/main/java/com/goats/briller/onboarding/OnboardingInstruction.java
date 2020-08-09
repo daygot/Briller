@@ -3,15 +3,13 @@ package com.goats.briller.onboarding;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Log;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.goats.briller.R;
+import com.goats.briller.partner.Partner;
 
 public class OnboardingInstruction extends AppCompatActivity {
-
-    private static final String TAG = "OnboardingActivity";
 
     private WrapContentViewPager onboardingInstructionViewPager;
     private ImageView onboardingInstructionProgressBar;
@@ -19,11 +17,14 @@ public class OnboardingInstruction extends AppCompatActivity {
 
     private int currentFragmentNumber;
 
+    public Partner partner;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.onboarding_activity_layout);
-        Log.d(TAG, "Onboarding instruction flow started");
+
+        partner = getIntent().getParcelableExtra("partner");
 
         onboardingInstructionViewPager = findViewById(R.id.onboarding_instruction_container);
         onboardingInstructionProgressBar = findViewById(R.id.onboarding_instruction_progress);
@@ -67,9 +68,6 @@ public class OnboardingInstruction extends AppCompatActivity {
         viewPager.setAdapter(OBF_FragmentsAdapter);
     }
 
-//    @Override
-//    public void onBackPressed() {
-//        if (currentFragmentNumber == 1) {super.onBackPressed();}
-//        this.setViewPager(currentFragmentNumber - 1);
-//    }
+    public Partner getPartner() { return partner; }
+
 }

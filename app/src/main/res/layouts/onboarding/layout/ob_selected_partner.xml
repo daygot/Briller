@@ -2,33 +2,32 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical" >
+    android:background="@drawable/app_background"
+    android:orientation="vertical"
+    android:gravity="center">
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="0dip"
-        android:layout_weight="1"
-        android:gravity="center"
-        android:orientation="vertical" >
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="What's my name?:" />
+            android:text="@string/onboarding_selected_partner_screen_title"
+            android:textSize="@dimen/textview_big_1_size"/>
 
         <EditText
             android:id="@+id/partner_name"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginHorizontal="20dp"
+            android:gravity="center"
             android:inputType="text"
-            android:text=" Nala" />
+            android:text="" />
 
         <Button
             android:id="@+id/partner_name_submit"
             style="?android:attr/buttonStyleSmall"
-            android:layout_width="145dp"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal|center"
-            android:text="ENTER" />
-    </LinearLayout>
+            android:text="@string/onboarding_instruction_title_3"
+            android:textSize="@dimen/textview_big_0_size" />
 
 </LinearLayout>

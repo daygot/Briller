@@ -9,6 +9,7 @@ import android.widget.EditText;
 
 import com.goats.briller.R;;
 import com.goats.briller.main.ui.stats.StampCardObject;
+import com.goats.briller.partner.Partner;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -58,14 +59,16 @@ public class OnboardingSelectedPartnerScreen extends AppCompatActivity {
                     } catch (Exception e) { System.out.println(e.toString()); }
                 }
 
+                Partner partner = new Partner(partnerChose, enteredText.getText().toString());
+
                 Intent intent = new Intent(getApplicationContext(), OnboardingInstruction.class);
+                intent.putExtra("partner", partner);
                 startActivity(intent);
                 finish();
             }
         });
 
         JSONObject jsonObject = new JSONObject();
-
 
         try {
             StampCardObject gym_stampCard = new StampCardObject(getResources().getString(R.string.habit_physique_gym));
@@ -104,8 +107,6 @@ public class OnboardingSelectedPartnerScreen extends AppCompatActivity {
         } catch (JSONException e) {
             e.printStackTrace();
         }
-
-
 
         File directory = new File(getApplicationContext().getFilesDir(), "StampCards");
 

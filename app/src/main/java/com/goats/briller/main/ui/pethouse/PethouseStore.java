@@ -10,7 +10,7 @@ import com.goats.briller.R;
 
 public class PethouseStore extends AppCompatActivity {
 
-    ImageButton petStore, islandStore;
+    ImageButton petStore, islandStore, backButton;
     Boolean displayingPets = true;
     ImageView petHouseStoreItem1, petHouseStoreItem2, petHouseStoreItem3, petHouseStoreItem4,
             petHouseStoreItem5, petHouseStoreItem6;
@@ -22,6 +22,14 @@ public class PethouseStore extends AppCompatActivity {
 
         petStore = findViewById(R.id.pethouse_store_pets);
         islandStore = findViewById(R.id.pethouse_store_islands);
+        backButton = findViewById(R.id.back_button);
+
+        petHouseStoreItem1 = findViewById(R.id.pethouse_store_item_1);
+        petHouseStoreItem2 = findViewById(R.id.pethouse_store_item_2);
+        petHouseStoreItem3 = findViewById(R.id.pethouse_store_item_3);
+        petHouseStoreItem4 = findViewById(R.id.pethouse_store_item_4);
+        petHouseStoreItem5 = findViewById(R.id.pethouse_store_item_5);
+        petHouseStoreItem6 = findViewById(R.id.pethouse_store_item_6);
 
         petStore.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -47,9 +55,19 @@ public class PethouseStore extends AppCompatActivity {
                     petHouseStoreItem2.setImageResource(R.drawable.premium_island_hill);
                     petHouseStoreItem3.setImageResource(R.drawable.premium_island_snow_mountain);
                     petHouseStoreItem4.setImageResource(R.drawable.premium_island_stonehenge);
-//                    petHouseStoreItem5.setImageResource(R.drawable.premium_pet_pig);
-//                    petHouseStoreItem6.setImageResource(R.drawable.premium_pet_orange_cat);
+
+                    // To be implemented!
+                    petHouseStoreItem5.setImageResource(android.R.color.transparent);
+                    petHouseStoreItem6.setImageResource(android.R.color.transparent);
                 }
+            }
+        });
+
+        backButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                onBackPressed();
+                finish();
             }
         });
     }

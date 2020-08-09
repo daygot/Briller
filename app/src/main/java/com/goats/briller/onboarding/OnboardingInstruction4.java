@@ -13,6 +13,7 @@ import android.widget.Toast;
 
 import com.goats.briller.R;
 import com.goats.briller.main.Home;
+import com.goats.briller.partner.Partner;
 
 public class OnboardingInstruction4 extends Fragment {
 
@@ -33,6 +34,11 @@ public class OnboardingInstruction4 extends Fragment {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(getActivity(), Home.class);
+
+                OnboardingInstruction onboardingInstruction = (OnboardingInstruction) getActivity();
+                Partner partner = onboardingInstruction.getPartner();
+
+                intent.putExtra("partner", partner);
                 startActivity(intent);
                 getActivity().finish();
             }
