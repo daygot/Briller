@@ -11,6 +11,17 @@ import android.widget.ImageButton;
 import android.widget.ImageView;
 
 import com.goats.briller.R;
+import com.goats.briller.main.Home;
+import com.goats.briller.partner.Partner;
+
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
 
 public class PethouseFragment extends Fragment implements View.OnClickListener {
 
@@ -34,6 +45,69 @@ public class PethouseFragment extends Fragment implements View.OnClickListener {
 
         rewards.setOnClickListener(this);
         store.setOnClickListener(this);
+
+        Home home = (Home) getActivity();
+
+        Partner partner = null;
+        try {
+            partner = home.getPartner();
+
+            // code to induce NPE
+            System.out.println(partner.getName());
+        } catch (NullPointerException npe) {
+            File directory = new File(getActivity().getApplicationContext().getFilesDir(), "Onboarding_Info");
+            File onboardingInfo = new File(directory, "Pet_Data.json");
+
+            FileReader fileReader = null;
+            try {
+                fileReader = new FileReader(onboardingInfo);
+            } catch (FileNotFoundException e) {
+                e.printStackTrace();
+            }
+            BufferedReader bufferedReader = new BufferedReader(fileReader);
+            StringBuilder stringBuilder = new StringBuilder();
+            String line = null;
+            try {
+                line = bufferedReader.readLine();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+            while (line != null){
+                stringBuilder.append(line).append("\n");
+                try {
+                    line = bufferedReader.readLine();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
+            try {
+                bufferedReader.close();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+            try {
+                fileReader.close();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+
+            String onboardingData = stringBuilder.toString();
+            JSONObject onboardingDataJSON  = null;
+            try {
+                onboardingDataJSON = new JSONObject(onboardingData);
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+
+            try {
+                partner = new Partner(onboardingDataJSON.get("PartnerType").toString(), onboardingDataJSON.get("PartnerName").toString());
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+
+        }
+
+        pet.setImageResource(partner.getPartnerIsland());
     }
 
     @Override

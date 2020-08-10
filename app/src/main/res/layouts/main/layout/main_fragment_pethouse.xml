@@ -55,10 +55,14 @@
 
     <ImageView
         android:id="@+id/pethouse_pet"
-        android:layout_width="fill_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:src="@drawable/onboarding_dog_skinned"
-        app:layout_constraintBottom_toTopOf="@id/pethouse_guideline"
-        app:layout_constraintLeft_toLeftOf="parent" />
+        android:maxWidth="150dp"
+        android:maxHeight="150dp"
+        android:adjustViewBounds="true"
+        android:scaleType="fitXY"
+        android:src="@drawable/island_dog"
+        app:layout_constraintTop_toTopOf="@id/pethouse_island"
+        app:layout_constraintRight_toRightOf="@id/pethouse_island" />
 
 </android.support.constraint.ConstraintLayout>

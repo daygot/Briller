@@ -52,6 +52,17 @@ public class Partner implements Parcelable {
         }
     }
 
+    public int getPartnerIsland() {
+        switch (this.type) {
+            case "dog":
+                return R.drawable.island_dog;
+            case "cat":
+                return R.drawable.island_cat;
+            default:
+                return 0;
+        }
+    }
+
     @Override
     public int describeContents() {
         return 0;
