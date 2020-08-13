@@ -11,5 +11,4 @@
         tools:text="You Failed!"
         android:textSize="60dp"/>
 
-
 </LinearLayout>
